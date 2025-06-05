@@ -1,0 +1,34 @@
+# Requirements for Python 3.13+
+# Note: Some features may be limited due to package compatibility
+
+# Core ML/AI Libraries (latest versions)
+ultralytics  # YOLOv8
+torch  # Will install latest version
+torchvision
+transformers  # For CLIP and NLP models
+faiss-cpu  # For vector similarity search
+opencv-python  # For video processing
+Pillow  # For image processing
+
+# NLP Libraries
+spacy
+# Note: Install spacy model separately with: python -m spacy download en_core_web_sm
+
+# API Framework
+fastapi
+uvicorn[standard]
+pydantic
+
+# Utilities
+numpy
+pandas
+python-multipart  # For file uploads
+aiofiles  # For async file operations
+python-dotenv  # For environment variables
+tqdm  # For progress bars
+requests  # For HTTP requests
+
+# Development tools
+pytest
+black
+flake8 

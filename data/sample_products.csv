@@ -1,0 +1,21 @@
+product_id,product_name,image_url,category,color,brand,price
+prod_001,White Summer Dress,https://via.placeholder.com/300x400/ffffff/000000?text=White+Dress,dress,white,Summer Co,89.99
+prod_002,Black Leather Jacket,https://via.placeholder.com/300x400/000000/ffffff?text=Black+Jacket,jacket,black,Urban Style,199.99
+prod_003,Blue Denim Jeans,https://via.placeholder.com/300x400/4169e1/ffffff?text=Blue+Jeans,bottom,blue,Denim Works,79.99
+prod_004,Pink Handbag,https://via.placeholder.com/300x400/ffc0cb/000000?text=Pink+Bag,bag,pink,Accessory Plus,129.99
+prod_005,Floral Print Top,https://via.placeholder.com/300x400/98fb98/000000?text=Floral+Top,top,multicolor,Garden Style,49.99
+prod_006,Red High Heels,https://via.placeholder.com/300x400/ff0000/ffffff?text=Red+Heels,shoes,red,Shoe Palace,149.99
+prod_007,Beige Trench Coat,https://via.placeholder.com/300x400/f5deb3/000000?text=Beige+Coat,coat,beige,Classic Wear,249.99
+prod_008,Striped T-Shirt,https://via.placeholder.com/300x400/000080/ffffff?text=Striped+Shirt,top,navy,Casual Co,29.99
+prod_009,Black Mini Skirt,https://via.placeholder.com/300x400/000000/ffffff?text=Black+Skirt,bottom,black,Trendy Fashion,59.99
+prod_010,Gold Necklace,https://via.placeholder.com/300x400/ffd700/000000?text=Gold+Necklace,accessories,gold,Jewelry Box,89.99
+prod_011,White Sneakers,https://via.placeholder.com/300x400/ffffff/000000?text=White+Sneakers,shoes,white,Sport Style,119.99
+prod_012,Plaid Shirt,https://via.placeholder.com/300x400/8b4513/ffffff?text=Plaid+Shirt,top,brown,Country Wear,69.99
+prod_013,Black Backpack,https://via.placeholder.com/300x400/000000/ffffff?text=Black+Backpack,bag,black,Travel Gear,99.99
+prod_014,Pink Bow Dress,https://via.placeholder.com/300x400/ffc0cb/ffffff?text=Pink+Bow+Dress,dress,pink,Coquette Style,119.99
+prod_015,Ripped Jeans,https://via.placeholder.com/300x400/4682b4/ffffff?text=Ripped+Jeans,bottom,light blue,Street Wear,89.99
+prod_016,Floral Midi Skirt,https://via.placeholder.com/300x400/dda0dd/000000?text=Floral+Skirt,bottom,purple,Garden Party,79.99
+prod_017,White Blouse,https://via.placeholder.com/300x400/fffaf0/000000?text=White+Blouse,top,white,Office Chic,69.99
+prod_018,Brown Boots,https://via.placeholder.com/300x400/8b4513/ffffff?text=Brown+Boots,shoes,brown,Boot Co,179.99
+prod_019,Silver Watch,https://via.placeholder.com/300x400/c0c0c0/000000?text=Silver+Watch,accessories,silver,Time Style,199.99
+prod_020,Pastel Cardigan,https://via.placeholder.com/300x400/e6e6fa/000000?text=Pastel+Cardigan,top,lavender,Soft Wear,89.99 

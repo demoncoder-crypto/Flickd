@@ -1,0 +1,78 @@
+{
+  "info": {
+    "name": "Flickd AI Engine API",
+    "description": "API endpoints for Flickd AI video analysis",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Supported Vibes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/vibes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "vibes"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Process Video",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "video",
+              "type": "file",
+              "src": []
+            },
+            {
+              "key": "caption",
+              "value": "Cute pink dress outfit",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/process-video",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "process-video"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ]
+}

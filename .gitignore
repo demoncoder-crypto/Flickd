@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Virtual environments
+bin/
+include/
+lib/
+lib64/
+share/
+pyvenv.cfg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+frames/
+logs/
+*.log
+*.index
+*.pkl
+*.pt
+*.pth
+*.onnx
+
+# Data files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+results*.json
+demo_results*.json
+
+# Temporary files
+temp/
+tmp/
+.DS_Store
+Thumbs.db
+
+# Model cache
+models/cache/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Environment variables
+.env
+.env.local
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/ 

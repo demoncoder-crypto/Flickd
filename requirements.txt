@@ -1,0 +1,34 @@
+# Core ML/AI Libraries
+ultralytics>=8.0.238  # YOLOv8 - using >= for compatibility
+torch>=2.0.0  # PyTorch - using latest compatible version
+torchvision>=0.15.0  # Match with torch version
+transformers>=4.36.0  # For CLIP and NLP models
+faiss-cpu==1.7.4  # For vector similarity search
+opencv-python>=4.8.0  # For video processing
+Pillow>=10.0.0  # For image processing
+
+# NLP Libraries
+spacy>=3.7.0
+# Note: Install spacy model separately with: python -m spacy download en_core_web_sm
+
+# API Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+
+# Utilities
+numpy>=1.24.0
+pandas>=2.1.0
+python-multipart>=0.0.6  # For file uploads
+aiofiles>=23.2.0  # For async file operations
+python-dotenv>=1.0.0  # For environment variables
+tqdm>=4.66.0  # For progress bars
+requests>=2.31.0  # For HTTP requests
+
+# Optional (for audio transcription)
+# openai-whisper  # Uncomment if using audio transcription
+
+# Development tools
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.1.0 
