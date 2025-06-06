@@ -18,7 +18,7 @@ API_WORKERS = int(os.getenv("API_WORKERS", 1))
 YOLO_MODEL_SIZE = os.getenv("YOLO_MODEL_SIZE", "m")  # n, s, m, l, x
 YOLO_CONFIDENCE_THRESHOLD = float(os.getenv("YOLO_CONFIDENCE_THRESHOLD", 0.5))
 YOLO_IOU_THRESHOLD = float(os.getenv("YOLO_IOU_THRESHOLD", 0.45))
-CLIP_MODEL_NAME = os.getenv("CLIP_MODEL_NAME", "ViT-B/32")
+CLIP_MODEL_NAME = os.getenv("CLIP_MODEL_NAME", "openai/clip-vit-base-patch32")
 CLIP_DEVICE = os.getenv("CLIP_DEVICE", "cuda" if os.path.exists("/usr/local/cuda") else "cpu")
 
 # Fashion item classes for YOLO

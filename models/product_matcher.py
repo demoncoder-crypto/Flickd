@@ -72,8 +72,8 @@ class ProductMatcher:
         logger.info(f"Loading CLIP model: {self.model_name}")
         
         from transformers import CLIPModel, CLIPProcessor
-        model = CLIPModel.from_pretrained(f"openai/clip-{self.model_name.lower()}")
-        processor = CLIPProcessor.from_pretrained(f"openai/clip-{self.model_name.lower()}")
+        model = CLIPModel.from_pretrained(self.model_name)
+        processor = CLIPProcessor.from_pretrained(self.model_name)
         
         model = model.to(self.device)
         model.eval()
