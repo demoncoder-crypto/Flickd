@@ -1,5 +1,29 @@
 {
   "video_id": "2025-06-02_11-31-19_UTC",
-  "vibes": [],
-  "products": []
+  "vibes": [
+    "Party Glam"
+  ],
+  "products": [
+    {
+      "type": "bottom",
+      "color": "blue",
+      "matched_product_id": "15159",
+      "match_type": "exact",
+      "confidence": 0.89
+    },
+    {
+      "type": "dress",
+      "color": "white",
+      "matched_product_id": "15140",
+      "match_type": "exact",
+      "confidence": 0.93
+    },
+    {
+      "type": "bottom",
+      "color": "blue",
+      "matched_product_id": "15080",
+      "match_type": "exact",
+      "confidence": 0.81
+    }
+  ]
 }

@@ -1,5 +1,37 @@
 {
   "video_id": "2025-05-28_13-40-09_UTC",
-  "vibes": [],
-  "products": []
+  "vibes": [
+    "Party Glam",
+    "Boho"
+  ],
+  "products": [
+    {
+      "type": "dress",
+      "color": "white",
+      "matched_product_id": "15180",
+      "match_type": "exact",
+      "confidence": 0.89
+    },
+    {
+      "type": "dress",
+      "color": "white",
+      "matched_product_id": "15103",
+      "match_type": "exact",
+      "confidence": 0.88
+    },
+    {
+      "type": "bottom",
+      "color": "blue",
+      "matched_product_id": "15344",
+      "match_type": "exact",
+      "confidence": 0.81
+    },
+    {
+      "type": "top",
+      "color": "black",
+      "matched_product_id": "15478",
+      "match_type": "similar",
+      "confidence": 0.94
+    }
+  ]
 }

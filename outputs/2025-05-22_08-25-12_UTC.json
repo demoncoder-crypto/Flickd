@@ -1,5 +1,23 @@
 {
   "video_id": "2025-05-22_08-25-12_UTC",
-  "vibes": [],
-  "products": []
+  "vibes": [
+    "Y2K",
+    "Cottagecore"
+  ],
+  "products": [
+    {
+      "type": "top",
+      "color": "black",
+      "matched_product_id": "15036",
+      "match_type": "similar",
+      "confidence": 0.93
+    },
+    {
+      "type": "dress",
+      "color": "white",
+      "matched_product_id": "15238",
+      "match_type": "exact",
+      "confidence": 0.94
+    }
+  ]
 }
