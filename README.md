@@ -46,7 +46,6 @@ This system processes fashion videos to:
 - **Products matched**: 106 total matches with real similarity scores (0.6-0.8)
 - **Vibes detected**: 5 unique vibes (Boho, Clean Girl, Coquette, Cottagecore, Streetcore)
 - **Audio transcription**: 100% success rate with Whisper
-- **System rating**: **9.5/10** (up from 4.5/10)
 
 ## 🛠 **Installation & Setup**
 
