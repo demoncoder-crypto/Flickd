@@ -274,8 +274,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Team**: AI Fashion Tech  
 **Challenge**: Flickd AI Smart Tagging & Vibe Classification  
-**Status**: Production Ready ✅  
-**Rating**: 9.5/10 🚀  
+
 
 ---
 
