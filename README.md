@@ -137,6 +137,3 @@ For each video, you'll get:
 - **NLP**: Keyword + transformer-based vibe classification
 - **API**: FastAPI with automatic documentation
 
----
-
-**Ready for hackathon submission! 🎉**
