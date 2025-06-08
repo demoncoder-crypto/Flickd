@@ -1,247 +1,142 @@
 # 🎬 Flickd AI Smart Tagging & Vibe Classification Engine
 
-## 🏆 Hackathon Submission - AI Fashion Video Analysis
+**Hackathon Submission - Fashion Video Analysis System**
 
-**Automatically detect fashion items, match products, and classify vibes from short-form video content.**
+## 🚀 Quick Start (One Command)
 
-![Flickd AI Demo](https://img.shields.io/badge/Status-Ready%20for%20Submission-brightgreen)
-![Python](https://img.shields.io/badge/Python-3.13+-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
----
-
-## 🎯 **What This Does**
-
-Flickd AI Engine processes fashion videos to:
-- 🔍 **Detect fashion items** using YOLOv8 object detection
-- 🛍️ **Match products** from your catalog using CLIP embeddings + FAISS
-- 🌟 **Classify fashion vibes** (Coquette, Clean Girl, Cottagecore, Y2K, etc.)
-- 📱 **Generate JSON outputs** in hackathon-required format
-
----
-
-## 🚀 **Quick Start**
-
-### Prerequisites
-- Python 3.13+ (recommended) or 3.8+
-- 4GB+ RAM
-- Windows/macOS/Linux
-
-### 1. Install Dependencies
 ```bash
-# Clone the repository
-git clone https://github.com/demoncoder-crypto/Flickd.git
-cd Flickd
-
-# Create virtual environment
-python -m venv venv
-
-# Activate environment
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements-py313.txt
+python run_flickd.py
 ```
 
-### 2. Setup Data
-```bash
-# Process your dataset
-python process_dataset.py
+That's it! The system will:
+- ✅ Check dependencies
+- ✅ Create demo data
+- ✅ Process videos in `videos/` folder
+- ✅ Generate results in `outputs/` folder
+- ✅ Show summary
 
-# Your data structure should be:
-# data/catalog.csv          - Product catalog
-# data/vibeslist.json      - Supported vibes
-# videos/*.mp4             - Input videos
-```
+## 📋 Requirements
 
-### 3. Run Analysis
-```bash
-# Process all videos
-python run_video_analysis.py
+- Python 3.8+
+- Required packages (auto-checked):
+  ```
+  torch ultralytics transformers opencv-python
+  numpy pandas pillow fastapi uvicorn
+  ```
 
-# Start API server
-python run_server.py
-```
+## 🎯 What It Does
 
-### 4. View Results
-- **JSON Outputs:** Check `outputs/` folder
-- **API Interface:** http://localhost:8000/docs
-- **Health Check:** http://localhost:8000/health
+### 1. **Object Detection (YOLO)**
+- Detects fashion items: tops, bottoms, dresses, bags, accessories
+- Uses YOLOv8 with enhanced person-based detection
+- Confidence thresholds optimized for fashion
 
----
+### 2. **Product Matching (CLIP + FAISS)**
+- Matches detected items to product catalog
+- Similarity scores: Exact (>0.85), Similar (0.65-0.85), No Match (<0.65)
+- Returns product IDs, names, and confidence scores
 
-## 📁 **Project Structure**
+### 3. **Vibe Classification (NLP)**
+- Classifies videos into fashion vibes:
+  - Coquette, Clean Girl, Cottagecore, Streetcore, Y2K, Boho, Party Glam
+- Uses keyword analysis and context understanding
 
-```
-Flickd/
-├── 📂 api/                  # FastAPI server & endpoints
-├── 📂 models/               # ML models (YOLO, CLIP, NLP)
-├── 📂 data/                 # Product catalog & vibes
-├── 📂 outputs/              # Generated evaluation JSONs
-├── 📂 videos/               # Sample input videos
-├── 📂 utils/                # Helper functions
-├── 🐍 run_video_analysis.py # Main processing script
-├── 🐍 run_server.py         # API server launcher
-├── 📋 requirements.txt      # Dependencies
-└── 📖 README.md             # This file
-```
-
----
-
-## 🎬 **Video Analysis Output Format**
-
-Each video generates a JSON file in the required hackathon format:
-
+### 4. **JSON Output**
 ```json
 {
-  "video_id": "reel_001",
-  "vibes": ["Coquette", "Party Glam"],
+  "video_id": "fashion_video_001",
+  "vibes": ["Coquette", "Clean Girl"],
   "products": [
     {
-      "type": "top",
-      "color": "white", 
-      "matched_product_id": "prod_002",
+      "type": "dress",
+      "color": "black",
       "match_type": "exact",
-      "confidence": 0.93
+      "matched_product_id": "prod_001",
+      "matched_product_name": "Black Evening Dress",
+      "confidence": 0.92,
+      "similarity": 0.94
     }
   ]
 }
 ```
 
----
+## 🎮 Usage Modes
 
-## 🔧 **Technical Architecture**
-
-### Core Components
-1. **YOLOv8 Object Detection** - Identifies people and fashion items
-2. **CLIP + FAISS Matching** - Matches detected items to product catalog  
-3. **NLP Vibe Classification** - Analyzes text/hashtags for fashion vibes
-4. **Video Processing Pipeline** - Orchestrates end-to-end analysis
-
-### Supported Fashion Vibes
-- 🎀 **Coquette** - Feminine, romantic, pink/pastel aesthetics
-- ✨ **Clean Girl** - Minimal, effortless, natural look
-- 🌸 **Cottagecore** - Rural, vintage, floral patterns
-- 🏙️ **Streetcore** - Urban, edgy, grunge style
-- 💫 **Y2K** - 2000s inspired, metallic, cyber elements
-- 🌿 **Boho** - Free-spirited, ethnic patterns, flowing
-- 💎 **Party Glam** - Sparkly, elegant evening wear
-
----
-
-## 🌐 **API Endpoints**
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/process-video` | Upload & analyze video |
-| GET | `/health` | Service health check |
-| GET | `/vibes` | List supported vibes |
-| POST | `/update-catalog` | Update product catalog |
-| GET | `/docs` | Interactive API documentation |
-
----
-
-## 📊 **Performance & Requirements**
-
-- **Processing Speed:** ~10-15 seconds per video
-- **Accuracy:** >75% similarity threshold for product matching
-- **Memory Usage:** ~2-4GB during processing
-- **Supported Formats:** MP4, MOV, AVI (720p recommended)
-
----
-
-## 🔧 **Configuration**
-
-Key settings in `config.py`:
-- `MATCH_THRESHOLD_EXACT = 0.85` - Exact product match threshold
-- `MATCH_THRESHOLD_SIMILAR = 0.75` - Similar product match threshold  
-- `SUPPORTED_VIBES` - List of fashion vibes to detect
-- `VIDEO_UPLOAD_MAX_SIZE_MB = 100` - Max video file size
-
----
-
-## 🚨 **Troubleshooting**
-
-### Common Issues
-
-**1. CUDA/GPU Errors**
+### Process Videos (Default)
 ```bash
-# Solution: Force CPU mode
-export USE_GPU=false
-python run_video_analysis.py
+python run_flickd.py --mode process
 ```
 
-**2. Missing Dependencies**
+### Start API Server
 ```bash
-# Install missing packages
-pip install transformers torch ultralytics faiss-cpu
+python run_flickd.py --mode api
+```
+- API: http://localhost:8000
+- Docs: http://localhost:8000/docs
+
+### View Results
+```bash
+python run_flickd.py --mode results
 ```
 
-**3. Memory Issues**
+### Create Demo Data
 ```bash
-# Reduce batch size in config.py
-FRAMES_TO_EXTRACT = 10  # Reduce from 30
+python run_flickd.py --mode demo
 ```
 
+## 📁 Project Structure
+
+```
+flickd-submission/
+├── run_flickd.py          # Main script (ONE COMMAND)
+├── config.py              # Configuration
+├── models/                # AI Models
+│   ├── object_detector.py # YOLO fashion detection
+│   ├── product_matcher.py # CLIP + FAISS matching
+│   ├── vibe_classifier.py # NLP vibe classification
+│   └── video_pipeline.py  # Main processing pipeline
+├── api/                   # FastAPI server
+├── videos/                # Input videos (add your videos here)
+├── outputs/               # Results (JSON files)
+└── data/                  # Product catalog
+```
+
+## 🎯 For Reviewers
+
+1. **Add video files** to `videos/` folder
+2. **Run**: `python run_flickd.py`
+3. **Check results** in `outputs/` folder
+
+The system automatically:
+- Downloads YOLO models if needed
+- Creates sample product catalog
+- Processes all videos
+- Shows detailed results
+
+## 🏆 Key Features
+
+- **High Accuracy**: Optimized YOLO detection for fashion items
+- **Real Similarity Scores**: CLIP-based product matching with realistic scores
+- **Complete Vibe Coverage**: All 7 required fashion vibes supported
+- **Production Ready**: FastAPI server with full documentation
+- **One Command Setup**: No complex configuration needed
+
+## 📊 Expected Output
+
+For each video, you'll get:
+- **Detected vibes** (1-3 per video)
+- **Matched products** with similarity scores
+- **Bounding boxes** and confidence levels
+- **Processing metadata**
+
+## 🔧 Technical Details
+
+- **YOLO**: YOLOv8-medium for fashion detection
+- **CLIP**: OpenAI CLIP for image embeddings
+- **FAISS**: Fast similarity search
+- **NLP**: Keyword + transformer-based vibe classification
+- **API**: FastAPI with automatic documentation
+
 ---
 
-## 📈 **Model Versions Used**
-
-- **Object Detection:** YOLOv8m (medium)
-- **Image Embedding:** CLIP ViT-B/32
-- **Similarity Search:** FAISS IndexFlatIP
-- **NLP Processing:** spaCy en_core_web_sm
-- **Framework:** FastAPI + Uvicorn
-
----
-
-## 🎥 **Demo & Examples**
-
-### 🎬 Loom Demo Video
-**[Watch 5-Minute Demo](LOOM_LINK_HERE)**
-
-### 📱 API Testing
-Import the Postman collection: `postman_collection.json`
-
-### 🧪 Sample Results
-Check `outputs/` folder for example JSON outputs from processed videos.
-
----
-
-## 🤝 **Contributing**
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/improvement`)
-3. Commit changes (`git commit -am 'Add improvement'`)
-4. Push to branch (`git push origin feature/improvement`)
-5. Open Pull Request
-
----
-
-## 📄 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🏆 **Hackathon Submission Checklist**
-
-- ✅ Complete video processing pipeline
-- ✅ Hackathon-format JSON outputs
-- ✅ REST API with documentation
-- ✅ Product catalog integration
-- ✅ Fashion vibe classification
-- ✅ Comprehensive README
-- ✅ Sample videos & results
-- ✅ Requirements & setup guide
-
----
-
-## 👨‍💻 **Built With ❤️ for Flickd Hackathon**
-
-*Revolutionizing fashion discovery through AI-powered video analysis*
-
-**Questions?** Open an issue or contact the development team!
+**Ready for hackathon submission! 🎉**

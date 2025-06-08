@@ -44,7 +44,7 @@ class ProductMatcher:
         catalog_path: Optional[Path] = None
     ):
         self.model_name = model_name
-        self.device = device or CLIP_DEVICE
+        self.device = 'cpu'  # Force CPU for compatibility
         
         # Initialize CLIP model if available
         if CLIP_AVAILABLE:
@@ -120,7 +120,8 @@ class ProductMatcher:
         for idx, row in tqdm(self.catalog.iterrows(), total=len(self.catalog), desc="Generating product embeddings"):
             try:
                 # Load image from URL
-                image = self._load_image_from_url(row['image_url'])
+                image_url = row.get('shopify_cdn_url', row.get('image_url', ''))
+                image = self._load_image_from_url(image_url)
                 if image is None:
                     # Use placeholder embedding
                     embedding = np.zeros(512)  # CLIP embedding dimension
@@ -293,13 +294,13 @@ class ProductMatcher:
                 
             match = {
                 'product_id': product['product_id'],
-                'product_name': product['product_name'],
+                'product_name': product.get('title', product.get('product_name', 'Unknown Product')),
                 'similarity': similarity,
                 'match_type': match_type,
                 'rank': rank + 1,
-                'category': product.get('category', 'unknown'),
+                'category': product.get('category', product.get('type', 'unknown')),
                 'color': product.get('color', 'unknown'),
-                'image_url': product.get('image_url', '')
+                'image_url': product.get('shopify_cdn_url', product.get('image_url', ''))
             }
             
             matches.append(match)

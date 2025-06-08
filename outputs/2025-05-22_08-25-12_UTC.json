@@ -1,23 +1,19 @@
 {
-  "video_id": "2025-05-22_08-25-12_UTC",
+  "video_id": "7ec1af932c8f",
+  "metadata": {
+    "fps": 30.0,
+    "frame_count": 281,
+    "width": 720,
+    "height": 1280,
+    "duration": 9.366666666666667
+  },
   "vibes": [
-    "Y2K",
-    "Cottagecore"
+    "Clean Girl",
+    "Coquette",
+    "Streetcore"
   ],
-  "products": [
-    {
-      "type": "top",
-      "color": "black",
-      "matched_product_id": "15036",
-      "match_type": "similar",
-      "confidence": 0.93
-    },
-    {
-      "type": "dress",
-      "color": "white",
-      "matched_product_id": "15238",
-      "match_type": "exact",
-      "confidence": 0.94
-    }
-  ]
+  "products": [],
+  "raw_detections": 0,
+  "frames_processed": 10,
+  "processing_time": 5.65
 }

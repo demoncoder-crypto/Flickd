@@ -1,8 +1,272 @@
 {
-  "video_id": "2025-05-31_14-01-37_UTC",
+  "video_id": "cae40a80b15f",
+  "metadata": {
+    "fps": 24.0,
+    "frame_count": 275,
+    "width": 720,
+    "height": 1280,
+    "duration": 11.458333333333334
+  },
   "vibes": [
+    "Clean Girl",
     "Streetcore",
-    "Clean Girl"
+    "Y2K"
   ],
-  "products": []
+  "products": [
+    {
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_118461",
+      "matched_product_name": "Nayra|TruTencel Peplum top and flared skirt",
+      "confidence": 0.85,
+      "similarity": 0.862,
+      "occurrences": 1,
+      "frames": [
+        0
+      ]
+    },
+    {
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_14999",
+      "matched_product_name": "Dream|Halter Neck Tiered Dress",
+      "confidence": 0.85,
+      "similarity": 0.829,
+      "occurrences": 1,
+      "frames": [
+        168
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_42080",
+      "matched_product_name": "Palash|Trucotton Puff Sleeve Block Print Mini Dress",
+      "confidence": 0.8,
+      "similarity": 0.754,
+      "occurrences": 2,
+      "frames": [
+        24,
+        48
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_118459",
+      "matched_product_name": "Elaria|Trutencel Volume Sleeve Midi Dress",
+      "confidence": 0.8,
+      "similarity": 0.774,
+      "occurrences": 2,
+      "frames": [
+        72,
+        192
+      ]
+    },
+    {
+      "type": "top",
+      "color": "blue",
+      "match_type": "exact",
+      "matched_product_id": "prod_14980",
+      "matched_product_name": "Renata|Blue Strappy Midi Dress",
+      "confidence": 0.8,
+      "similarity": 0.727,
+      "occurrences": 1,
+      "frames": [
+        96
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15966",
+      "matched_product_name": "Shiah|Cotton Halter Neck Top",
+      "confidence": 0.8,
+      "similarity": 0.788,
+      "occurrences": 1,
+      "frames": [
+        120
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16584",
+      "matched_product_name": "Crystal|Front Twist Top",
+      "confidence": 0.8,
+      "similarity": 0.799,
+      "occurrences": 1,
+      "frames": [
+        144
+      ]
+    },
+    {
+      "type": "top",
+      "color": "floral",
+      "match_type": "exact",
+      "matched_product_id": "prod_16281",
+      "matched_product_name": "Filora Shirt|Chic Cotton Floral Shirt",
+      "confidence": 0.8,
+      "similarity": 0.77,
+      "occurrences": 1,
+      "frames": [
+        192
+      ]
+    },
+    {
+      "type": "top",
+      "color": "ivory",
+      "match_type": "exact",
+      "matched_product_id": "prod_15581",
+      "matched_product_name": "Nikohl|Truviscose Oversize Ivory Shirt With Pockets",
+      "confidence": 0.8,
+      "similarity": 0.803,
+      "occurrences": 1,
+      "frames": [
+        216
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "floral",
+      "match_type": "exact",
+      "matched_product_id": "prod_17084",
+      "matched_product_name": "Zinnia Top|Floral Knot-Detail Top",
+      "confidence": 0.75,
+      "similarity": 0.853,
+      "occurrences": 2,
+      "frames": [
+        24,
+        48
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_17179",
+      "matched_product_name": "Rory Skirt|Pleated Cotton Skirt",
+      "confidence": 0.75,
+      "similarity": 0.758,
+      "occurrences": 2,
+      "frames": [
+        96,
+        216
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15003",
+      "matched_product_name": "Amaz|Viscose+ Highneck Scooped Hem Regular Top",
+      "confidence": 0.75,
+      "similarity": 0.759,
+      "occurrences": 2,
+      "frames": [
+        120,
+        144
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16622",
+      "matched_product_name": "Elora|Tie-Front Top",
+      "confidence": 0.7,
+      "similarity": 0.736,
+      "occurrences": 1,
+      "frames": [
+        72
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "grey",
+      "match_type": "exact",
+      "matched_product_id": "prod_15555",
+      "matched_product_name": "Emerson|Viscose+ Grey Checked Mini Skirt",
+      "confidence": 0.7,
+      "similarity": 0.643,
+      "occurrences": 1,
+      "frames": [
+        96
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15320",
+      "matched_product_name": "Rumi Top|Rescued Polyester Printed Corset Top",
+      "confidence": 0.7,
+      "similarity": 0.699,
+      "occurrences": 1,
+      "frames": [
+        120
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_42082",
+      "matched_product_name": "Gulnar|Trucotton Flutter Sleeve Block Print Top",
+      "confidence": 0.7,
+      "similarity": 0.729,
+      "occurrences": 1,
+      "frames": [
+        144
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15536",
+      "matched_product_name": "Juniper|Trucotton Long Sleeve Formal Shirt",
+      "confidence": 0.401,
+      "similarity": 0.641,
+      "occurrences": 1,
+      "frames": [
+        240
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_42037",
+      "matched_product_name": "Yvenne|Linen+ Sleeveless Top With Pintuck Detail",
+      "confidence": 0.401,
+      "similarity": 0.775,
+      "occurrences": 1,
+      "frames": [
+        240
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15232",
+      "matched_product_name": "Odina|Trucotton Bomber Jacket With Rib Collar",
+      "confidence": 0.301,
+      "similarity": 0.709,
+      "occurrences": 1,
+      "frames": [
+        240
+      ]
+    }
+  ],
+  "raw_detections": 24,
+  "frames_processed": 12,
+  "processing_time": 8.17
 }

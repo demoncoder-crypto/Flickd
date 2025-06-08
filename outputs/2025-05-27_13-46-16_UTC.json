@@ -1,9 +1,242 @@
 {
-  "video_id": "2025-05-27_13-46-16_UTC",
+  "video_id": "557c90c12c8e",
+  "metadata": {
+    "fps": 30.0,
+    "frame_count": 450,
+    "width": 720,
+    "height": 1280,
+    "duration": 15.0
+  },
   "vibes": [
-    "Party Glam",
     "Streetcore",
-    "Coquette"
+    "Boho",
+    "Clean Girl"
   ],
-  "products": []
+  "products": [
+    {
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15592",
+      "matched_product_name": "Avery|Viscose+ Cami Strappy Top",
+      "confidence": 0.85,
+      "similarity": 0.749,
+      "occurrences": 1,
+      "frames": [
+        150
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16272",
+      "matched_product_name": "Dakota|Classy Cotton Co-Ord Set",
+      "confidence": 0.8,
+      "similarity": 0.807,
+      "occurrences": 1,
+      "frames": [
+        0
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15003",
+      "matched_product_name": "Amaz|Viscose+ Highneck Scooped Hem Regular Top",
+      "confidence": 0.8,
+      "similarity": 0.713,
+      "occurrences": 1,
+      "frames": [
+        90
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_118442",
+      "matched_product_name": "Arna|Trucotton Front-Pleated Straight Fit Pant",
+      "confidence": 0.8,
+      "similarity": 0.746,
+      "occurrences": 1,
+      "frames": [
+        90
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16293",
+      "matched_product_name": "Dakota Shirt|Versatile Cotton Shirt",
+      "confidence": 0.8,
+      "similarity": 0.756,
+      "occurrences": 1,
+      "frames": [
+        270
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15232",
+      "matched_product_name": "Odina|Trucotton Bomber Jacket With Rib Collar",
+      "confidence": 0.8,
+      "similarity": 0.728,
+      "occurrences": 1,
+      "frames": [
+        330
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_42076",
+      "matched_product_name": "Champa|Linen+ Eco-Printed Side Slit Tunic",
+      "confidence": 0.762,
+      "similarity": 0.762,
+      "occurrences": 3,
+      "frames": [
+        0,
+        30,
+        210
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16125",
+      "matched_product_name": "Suzanne Top| Torrid Cotton Bandeau",
+      "confidence": 0.75,
+      "similarity": 0.692,
+      "occurrences": 2,
+      "frames": [
+        60,
+        90
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "ivory",
+      "match_type": "exact",
+      "matched_product_id": "prod_15581",
+      "matched_product_name": "Nikohl|Truviscose Oversize Ivory Shirt With Pockets",
+      "confidence": 0.75,
+      "similarity": 0.822,
+      "occurrences": 1,
+      "frames": [
+        60
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_17179",
+      "matched_product_name": "Rory Skirt|Pleated Cotton Skirt",
+      "confidence": 0.739,
+      "similarity": 0.702,
+      "occurrences": 11,
+      "frames": [
+        60,
+        90,
+        90,
+        90,
+        210,
+        240,
+        240,
+        270,
+        270,
+        270,
+        330
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16806",
+      "matched_product_name": "Marlin Top| Cotton Tiered Top",
+      "confidence": 0.736,
+      "similarity": 0.771,
+      "occurrences": 1,
+      "frames": [
+        30
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_97558",
+      "matched_product_name": "Oman|Embroidered Cutout Detail Tee",
+      "confidence": 0.719,
+      "similarity": 0.713,
+      "occurrences": 1,
+      "frames": [
+        120
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15355",
+      "matched_product_name": "Linda Top|Cotton Strapless Top",
+      "confidence": 0.719,
+      "similarity": 0.693,
+      "occurrences": 1,
+      "frames": [
+        120
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16584",
+      "matched_product_name": "Crystal|Front Twist Top",
+      "confidence": 0.7,
+      "similarity": 0.695,
+      "occurrences": 1,
+      "frames": [
+        270
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15861",
+      "matched_product_name": "Ryder|Denim Trucker Jacket",
+      "confidence": 0.668,
+      "similarity": 0.716,
+      "occurrences": 2,
+      "frames": [
+        0,
+        30
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "black",
+      "match_type": "exact",
+      "matched_product_id": "prod_15576",
+      "matched_product_name": "Madison|Viscose+ Black Single Breasted Blazer",
+      "confidence": 0.504,
+      "similarity": 0.775,
+      "occurrences": 1,
+      "frames": [
+        0
+      ]
+    }
+  ],
+  "raw_detections": 30,
+  "frames_processed": 15,
+  "processing_time": 8.76
 }

@@ -1,0 +1,6 @@
+product_id,product_name,image_url,category,color
+prod_001,Black Evening Dress,https://example.com/dress1.jpg,dress,black
+prod_002,White Cotton Blouse,https://example.com/top1.jpg,top,white
+prod_003,Blue Denim Jeans,https://example.com/jeans1.jpg,bottom,blue
+prod_004,Brown Leather Handbag,https://example.com/bag1.jpg,bag,brown
+prod_005,Gold Chain Necklace,https://example.com/necklace1.jpg,accessories,gold

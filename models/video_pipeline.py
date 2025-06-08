@@ -8,6 +8,7 @@ import numpy as np
 
 from utils.video_processor import VideoProcessor
 from models.object_detector import FashionDetector
+from models.custom_fashion_detector import load_best_available_model
 from models.product_matcher import ProductMatcher
 from models.vibe_classifier import VibeClassifier
 
@@ -29,7 +30,15 @@ class VideoAnalysisPipeline:
         logger.info("Initializing video analysis pipeline...")
         
         self.video_processor = VideoProcessor()
+        
+        # Try to load custom trained model, fallback to original detector
+        try:
+            self.fashion_detector = load_best_available_model()
+            logger.info("Using custom trained fashion detector")
+        except Exception as e:
+            logger.warning(f"Failed to load custom model, using original detector: {e}")
         self.fashion_detector = FashionDetector(device=device)
+            
         self.product_matcher = ProductMatcher(device=device)
         self.vibe_classifier = VibeClassifier(use_transformer=use_transformer_nlp)
         
@@ -114,6 +123,19 @@ class VideoAnalysisPipeline:
                 combined_text = f"{caption or ''} {transcript or ''}".strip()
                 vibe_results = self.vibe_classifier.classify_vibes(combined_text)
                 vibes = [vibe for vibe, _ in vibe_results]
+            else:
+                # Use visual analysis when no text is available
+                frame_vibes = []
+                for frame_num, frame in frames[:5]:  # Analyze first 5 frames
+                    detected_vibes = self.vibe_classifier.classify_vibes_from_image(frame)
+                    frame_vibes.extend(detected_vibes)
+                
+                # Aggregate vibes from all frames
+                if frame_vibes:
+                    from collections import Counter
+                    vibe_counts = Counter(frame_vibes)
+                    # Get most common vibes (up to 3)
+                    vibes = [vibe for vibe, count in vibe_counts.most_common(3)]
                 
             # Aggregate results
             processing_time = time.time() - start_time
