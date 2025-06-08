@@ -223,17 +223,56 @@ class ProductMatcher:
             return None
             
     def _generate_image_embedding(self, image: Image.Image) -> np.ndarray:
-        """Generate CLIP embedding for an image"""
+        """Generate CLIP embedding for an image with high-quality preprocessing"""
         if not CLIP_AVAILABLE or self.model is None:
             return np.zeros(512)
-            
+
         with torch.no_grad():
-            inputs = self.processor(images=image, return_tensors="pt").to(self.device)
-            image_features = self.model.get_image_features(**inputs)
+            # HIGH-QUALITY PREPROCESSING PIPELINE
+            # 1. Preserve aspect ratio and use smart resizing
+            original_size = image.size
             
+            # Use larger target size to preserve detail
+            target_size = 224  # Match CLIP model expectations
+            
+            # Smart resize that preserves aspect ratio
+            if original_size[0] != original_size[1]:
+                # For non-square images, pad to square first
+                max_dim = max(original_size)
+                padded_image = Image.new('RGB', (max_dim, max_dim), (255, 255, 255))
+                
+                # Center the image
+                paste_x = (max_dim - original_size[0]) // 2
+                paste_y = (max_dim - original_size[1]) // 2
+                padded_image.paste(image, (paste_x, paste_y))
+                
+                # Now resize the square image
+                processed_image = padded_image.resize((target_size, target_size), Image.Resampling.LANCZOS)
+            else:
+                # For square images, direct high-quality resize
+                processed_image = image.resize((target_size, target_size), Image.Resampling.LANCZOS)
+            
+            # 2. Use custom preprocessing instead of default processor
+            # Convert to tensor manually for better control
+            import torchvision.transforms as transforms
+            
+            transform = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=[0.48145466, 0.4578275, 0.40821073],  # CLIP normalization
+                    std=[0.26862954, 0.26130258, 0.27577711]
+                )
+            ])
+            
+            # Apply transform
+            image_tensor = transform(processed_image).unsqueeze(0).to(self.device)
+            
+            # Generate features
+            image_features = self.model.get_image_features(pixel_values=image_tensor)
+
             # Normalize embedding
             image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-            
+
             return image_features.cpu().numpy().squeeze()
             
     def match_product(

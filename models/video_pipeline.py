@@ -37,7 +37,7 @@ class VideoAnalysisPipeline:
             logger.info("Using custom trained fashion detector")
         except Exception as e:
             logger.warning(f"Failed to load custom model, using original detector: {e}")
-            self.fashion_detector = FashionDetector(device=device)
+        self.fashion_detector = FashionDetector(device=device)
             
         self.product_matcher = ProductMatcher(device=device)
         self.vibe_classifier = VibeClassifier(use_transformer=use_transformer_nlp)
@@ -145,23 +145,23 @@ class VideoAnalysisPipeline:
                 logger.warning(f"Video-based vibe classification failed: {e}")
                 
                 # Fallback to text-only classification
-                if caption or transcript:
-                    combined_text = f"{caption or ''} {transcript or ''}".strip()
-                    vibe_results = self.vibe_classifier.classify_vibes(combined_text)
-                    vibes = [vibe for vibe, _ in vibe_results]
-                else:
-                    # Use visual analysis when no text is available
-                    frame_vibes = []
-                    for frame_num, frame in frames[:5]:  # Analyze first 5 frames
-                        detected_vibes = self.vibe_classifier.classify_vibes_from_image(frame)
-                        frame_vibes.extend(detected_vibes)
-                    
-                    # Aggregate vibes from all frames
-                    if frame_vibes:
-                        from collections import Counter
-                        vibe_counts = Counter(frame_vibes)
-                        # Get most common vibes (up to 3)
-                        vibes = [vibe for vibe, count in vibe_counts.most_common(3)]
+            if not vibes and (caption or transcript):
+                combined_text = f"{caption or ''} {transcript or ''}".strip()
+                vibe_results = self.vibe_classifier.classify_vibes(combined_text)
+                vibes = [vibe for vibe, _ in vibe_results]
+            elif not vibes:
+                # Use visual analysis when no text is available
+                frame_vibes = []
+                for frame_num, frame in frames[:5]:  # Analyze first 5 frames
+                    detected_vibes = self.vibe_classifier.classify_vibes_from_image(frame)
+                    frame_vibes.extend(detected_vibes)
+                
+                # Aggregate vibes from all frames
+                if frame_vibes:
+                    from collections import Counter
+                    vibe_counts = Counter(frame_vibes)
+                    # Get most common vibes (up to 3)
+                    vibes = [vibe for vibe, count in vibe_counts.most_common(3)]
                 
             # Aggregate results
             processing_time = time.time() - start_time

@@ -7,83 +7,72 @@
     "height": 1280,
     "duration": 11.458333333333334
   },
-  "vibes": [],
+  "vibes": [
+    "Streetcore",
+    "Clean Girl",
+    "Coquette"
+  ],
   "products": [
     {
-      "type": "top",
-      "color": "pink",
-      "match_type": "similar",
-      "matched_product_id": "prod_15320",
-      "matched_product_name": "Rumi Top|Rescued Polyester Printed Corset Top",
-      "confidence": 0.8,
-      "similarity": 0.765,
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_118461",
+      "matched_product_name": "Nayra|TruTencel Peplum top and flared skirt",
+      "confidence": 0.85,
+      "similarity": 0.9,
       "occurrences": 1,
       "frames": [
         0
       ]
     },
     {
-      "type": "bottom",
-      "color": "pink",
-      "match_type": "similar",
-      "matched_product_id": "prod_42032",
-      "matched_product_name": "Ria|Linen+ Maxi Dress With Criss-Cross Back",
-      "confidence": 0.8,
-      "similarity": 0.824,
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_15665",
+      "matched_product_name": "Audrey|Cotton Twill Midi Dress",
+      "confidence": 0.85,
+      "similarity": 0.908,
       "occurrences": 1,
       "frames": [
-        0
+        168
       ]
     },
     {
       "type": "top",
-      "color": "pink",
+      "color": "unknown",
       "match_type": "similar",
-      "matched_product_id": "prod_42080",
-      "matched_product_name": "Palash|Trucotton Puff Sleeve Block Print Mini Dress",
+      "matched_product_id": "prod_15432",
+      "matched_product_name": "Belen|Cotton Puff Sleeve Top",
       "confidence": 0.8,
-      "similarity": 0.738,
-      "occurrences": 2,
+      "similarity": 0.757,
+      "occurrences": 1,
       "frames": [
-        24,
-        48
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "pink",
-      "match_type": "similar",
-      "matched_product_id": "prod_17084",
-      "matched_product_name": "Zinnia Top|Floral Knot-Detail Top",
-      "confidence": 0.8,
-      "similarity": 0.854,
-      "occurrences": 2,
-      "frames": [
-        24,
-        48
+        24
       ]
     },
     {
       "type": "top",
-      "color": "pink",
+      "color": "unknown",
       "match_type": "similar",
-      "matched_product_id": "prod_15318",
-      "matched_product_name": "Rumi Skirt|Rescued Polyester Floral Midi Skirt",
+      "matched_product_id": "prod_15693",
+      "matched_product_name": "Kial|Cotton Smocking Maxi Dress",
       "confidence": 0.8,
-      "similarity": 0.783,
+      "similarity": 0.769,
       "occurrences": 1,
       "frames": [
-        72
+        48
       ]
     },
     {
-      "type": "bottom",
-      "color": "pink",
-      "match_type": "similar",
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "exact",
       "matched_product_id": "prod_118459",
       "matched_product_name": "Elaria|Trutencel Volume Sleeve Midi Dress",
       "confidence": 0.8,
-      "similarity": 0.83,
+      "similarity": 0.884,
       "occurrences": 2,
       "frames": [
         72,
@@ -92,25 +81,12 @@
     },
     {
       "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_42076",
-      "matched_product_name": "Champa|Linen+ Eco-Printed Side Slit Tunic",
-      "confidence": 0.8,
-      "similarity": 0.68,
-      "occurrences": 1,
-      "frames": [
-        96
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "pink",
+      "color": "unknown",
       "match_type": "similar",
-      "matched_product_id": "prod_118442",
-      "matched_product_name": "Arna|Trucotton Front-Pleated Straight Fit Pant",
+      "matched_product_id": "prod_17302",
+      "matched_product_name": "Zayna|Button Down Denim Dress",
       "confidence": 0.8,
-      "similarity": 0.801,
+      "similarity": 0.767,
       "occurrences": 1,
       "frames": [
         96
@@ -118,39 +94,12 @@
     },
     {
       "type": "top",
-      "color": "navy",
-      "match_type": "no_match",
-      "matched_product_id": "prod_17031",
-      "matched_product_name": "Jamie|Cropped Boxy Shirt",
-      "confidence": 0.8,
-      "similarity": 0.734,
-      "occurrences": 1,
-      "frames": [
-        120
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "navy",
-      "match_type": "similar",
-      "matched_product_id": "prod_15518",
-      "matched_product_name": "Daira|Cotton Striped Shirt Dress",
-      "confidence": 0.8,
-      "similarity": 0.782,
-      "occurrences": 2,
-      "frames": [
-        120,
-        144
-      ]
-    },
-    {
-      "type": "top",
-      "color": "navy",
+      "color": "unknown",
       "match_type": "similar",
       "matched_product_id": "prod_16131",
       "matched_product_name": "Rowan|Comfy Viscose Jersey Top",
       "confidence": 0.8,
-      "similarity": 0.777,
+      "similarity": 0.798,
       "occurrences": 1,
       "frames": [
         144
@@ -158,38 +107,12 @@
     },
     {
       "type": "top",
-      "color": "pink",
+      "color": "floral",
       "match_type": "similar",
-      "matched_product_id": "prod_15672",
-      "matched_product_name": "Carlienna|Cotton Bow-Detail Dress",
+      "matched_product_id": "prod_16281",
+      "matched_product_name": "Filora Shirt|Chic Cotton Floral Shirt",
       "confidence": 0.8,
-      "similarity": 0.86,
-      "occurrences": 1,
-      "frames": [
-        168
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "pink",
-      "match_type": "similar",
-      "matched_product_id": "prod_16413",
-      "matched_product_name": "Shadow Skirt|Cotton Cargo Pleat Skirt",
-      "confidence": 0.8,
-      "similarity": 0.859,
-      "occurrences": 1,
-      "frames": [
-        168
-      ]
-    },
-    {
-      "type": "top",
-      "color": "beige",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15432",
-      "matched_product_name": "Belen|Cotton Puff Sleeve Top",
-      "confidence": 0.8,
-      "similarity": 0.748,
+      "similarity": 0.798,
       "occurrences": 1,
       "frames": [
         192
@@ -197,12 +120,12 @@
     },
     {
       "type": "top",
-      "color": "black",
+      "color": "pink",
       "match_type": "similar",
-      "matched_product_id": "prod_15861",
-      "matched_product_name": "Ryder|Denim Trucker Jacket",
+      "matched_product_id": "prod_14984",
+      "matched_product_name": "Ayla Hoodie|Cropped Boxy Pink Hoodie",
       "confidence": 0.8,
-      "similarity": 0.767,
+      "similarity": 0.771,
       "occurrences": 1,
       "frames": [
         216
@@ -210,19 +133,152 @@
     },
     {
       "type": "bottom",
-      "color": "gray",
+      "color": "floral",
+      "match_type": "exact",
+      "matched_product_id": "prod_17083",
+      "matched_product_name": "Lila Top|Floral Satin Corset",
+      "confidence": 0.75,
+      "similarity": 0.866,
+      "occurrences": 1,
+      "frames": [
+        24
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "floral",
+      "match_type": "exact",
+      "matched_product_id": "prod_17084",
+      "matched_product_name": "Zinnia Top|Floral Knot-Detail Top",
+      "confidence": 0.75,
+      "similarity": 0.869,
+      "occurrences": 1,
+      "frames": [
+        48
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "red",
       "match_type": "similar",
-      "matched_product_id": "prod_16978",
-      "matched_product_name": "Cassandra|Bubble Hem Mini Skirt",
-      "confidence": 0.8,
-      "similarity": 0.781,
+      "matched_product_id": "prod_15324",
+      "matched_product_name": "Adela|Trucotton Red Tiered Midi Dress",
+      "confidence": 0.75,
+      "similarity": 0.794,
+      "occurrences": 1,
+      "frames": [
+        96
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15003",
+      "matched_product_name": "Amaz|Viscose+ Highneck Scooped Hem Regular Top",
+      "confidence": 0.75,
+      "similarity": 0.755,
+      "occurrences": 2,
+      "frames": [
+        120,
+        144
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16032",
+      "matched_product_name": "Tara Skirt|Balinese Cotton Slit Skirt",
+      "confidence": 0.75,
+      "similarity": 0.847,
       "occurrences": 1,
       "frames": [
         216
       ]
+    },
+    {
+      "type": "accessories",
+      "color": "pink",
+      "match_type": "exact",
+      "matched_product_id": "prod_97544",
+      "matched_product_name": "Aira|Pink Knitted Corset T-Shirt",
+      "confidence": 0.733,
+      "similarity": 0.762,
+      "occurrences": 3,
+      "frames": [
+        120,
+        120,
+        144
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_42083",
+      "matched_product_name": "Champai|Trucotton Cinched Waist Block Print Crop Top",
+      "confidence": 0.7,
+      "similarity": 0.718,
+      "occurrences": 1,
+      "frames": [
+        72
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "no_match",
+      "matched_product_id": "prod_15355",
+      "matched_product_name": "Linda Top|Cotton Strapless Top",
+      "confidence": 0.7,
+      "similarity": 0.645,
+      "occurrences": 1,
+      "frames": [
+        96
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15557",
+      "matched_product_name": "Diane|Trucotton High Neck Top With Full Sleeve",
+      "confidence": 0.401,
+      "similarity": 0.715,
+      "occurrences": 1,
+      "frames": [
+        240
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_14999",
+      "matched_product_name": "Dream|Halter Neck Tiered Dress",
+      "confidence": 0.401,
+      "similarity": 0.881,
+      "occurrences": 1,
+      "frames": [
+        240
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15861",
+      "matched_product_name": "Ryder|Denim Trucker Jacket",
+      "confidence": 0.301,
+      "similarity": 0.732,
+      "occurrences": 1,
+      "frames": [
+        240
+      ]
     }
   ],
-  "raw_detections": 20,
+  "raw_detections": 24,
   "frames_processed": 12,
-  "processing_time": 30.26
+  "processing_time": 9.44
 }

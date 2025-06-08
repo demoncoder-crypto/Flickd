@@ -14,170 +14,133 @@
   ],
   "products": [
     {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15355",
-      "matched_product_name": "Linda Top|Cotton Strapless Top",
-      "confidence": 0.8,
-      "similarity": 0.659,
+      "type": "dress",
+      "color": "grey",
+      "match_type": "similar",
+      "matched_product_id": "prod_15594",
+      "matched_product_name": "Tasha|Viscose+ Grey Blazer With Power Shoulder",
+      "confidence": 0.85,
+      "similarity": 0.727,
+      "occurrences": 1,
+      "frames": [
+        90
+      ]
+    },
+    {
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_42067",
+      "matched_product_name": "Roshelle|Truviscose Skirt Midi Length With Ruffle",
+      "confidence": 0.825,
+      "similarity": 0.737,
       "occurrences": 2,
       "frames": [
-        0,
-        30
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "similar",
-      "matched_product_id": "prod_15555",
-      "matched_product_name": "Emerson|Viscose+ Grey Checked Mini Skirt",
-      "confidence": 0.8,
-      "similarity": 0.704,
-      "occurrences": 4,
-      "frames": [
-        0,
-        30,
-        270,
-        390
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "similar",
-      "matched_product_id": "prod_42076",
-      "matched_product_name": "Champa|Linen+ Eco-Printed Side Slit Tunic",
-      "confidence": 0.8,
-      "similarity": 0.784,
-      "occurrences": 3,
-      "frames": [
         60,
-        150,
+        420
+      ]
+    },
+    {
+      "type": "top",
+      "color": "floral",
+      "match_type": "similar",
+      "matched_product_id": "prod_15292",
+      "matched_product_name": "Taylor Top|Floral Square-Neck Top",
+      "confidence": 0.8,
+      "similarity": 0.67,
+      "occurrences": 1,
+      "frames": [
         210
       ]
     },
     {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_17179",
-      "matched_product_name": "Rory Skirt|Pleated Cotton Skirt",
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_17302",
+      "matched_product_name": "Zayna|Button Down Denim Dress",
       "confidence": 0.8,
-      "similarity": 0.715,
-      "occurrences": 5,
+      "similarity": 0.766,
+      "occurrences": 1,
       "frames": [
-        60,
-        90,
-        180,
+        300
+      ]
+    },
+    {
+      "type": "top",
+      "color": "rose",
+      "match_type": "similar",
+      "matched_product_id": "prod_15295",
+      "matched_product_name": "Rihanna|Rose Detail Co-Ord Set",
+      "confidence": 0.8,
+      "similarity": 0.78,
+      "occurrences": 1,
+      "frames": [
+        330
+      ]
+    },
+    {
+      "type": "top",
+      "color": "striped",
+      "match_type": "similar",
+      "matched_product_id": "prod_15924",
+      "matched_product_name": "Shawn|Suave Cotton Striped Shirt",
+      "confidence": 0.8,
+      "similarity": 0.764,
+      "occurrences": 2,
+      "frames": [
+        390,
+        540
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_42082",
+      "matched_product_name": "Gulnar|Trucotton Flutter Sleeve Block Print Top",
+      "confidence": 0.8,
+      "similarity": 0.756,
+      "occurrences": 1,
+      "frames": [
+        450
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16720",
+      "matched_product_name": "Arlyn|Glam Cotton Wrap Skirt",
+      "confidence": 0.8,
+      "similarity": 0.78,
+      "occurrences": 2,
+      "frames": [
         480,
         510
       ]
     },
     {
       "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_42067",
-      "matched_product_name": "Roshelle|Truviscose Skirt Midi Length With Ruffle",
-      "confidence": 0.8,
-      "similarity": 0.68,
-      "occurrences": 2,
-      "frames": [
-        90,
-        420
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
+      "color": "unknown",
       "match_type": "similar",
-      "matched_product_id": "prod_15257",
-      "matched_product_name": "Verity|Light Blue Wrap Mini Skirt",
+      "matched_product_id": "prod_15668",
+      "matched_product_name": "Pippa|Poplin Kimono Sleeve Top",
       "confidence": 0.8,
-      "similarity": 0.751,
-      "occurrences": 2,
-      "frames": [
-        120,
-        510
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "similar",
-      "matched_product_id": "prod_15348",
-      "matched_product_name": "Halsey Shorts|Viscose+ Off-White Waist Tie-Up Shorts",
-      "confidence": 0.8,
-      "similarity": 0.778,
-      "occurrences": 2,
-      "frames": [
-        120,
-        330
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15957",
-      "matched_product_name": "Chala|Cotton Corset Smocking Top",
-      "confidence": 0.8,
-      "similarity": 0.714,
+      "similarity": 0.735,
       "occurrences": 1,
       "frames": [
-        150
+        570
       ]
     },
     {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_16430",
-      "matched_product_name": "Sawyer|Plush Seamed Cotton Corset",
-      "confidence": 0.8,
-      "similarity": 0.728,
-      "occurrences": 1,
-      "frames": [
-        180
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_17138",
-      "matched_product_name": "Trula|Checked Cotton Mini Skirt",
-      "confidence": 0.8,
-      "similarity": 0.7,
-      "occurrences": 1,
-      "frames": [
-        210
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_16584",
-      "matched_product_name": "Crystal|Front Twist Top",
-      "confidence": 0.8,
-      "similarity": 0.716,
-      "occurrences": 2,
-      "frames": [
-        240,
-        450
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
+      "type": "bag",
+      "color": "unknown",
       "match_type": "similar",
-      "matched_product_id": "prod_15614",
-      "matched_product_name": "Arielle|Viscose+ Grey Pleated Flap Mini Skorts",
-      "confidence": 0.8,
-      "similarity": 0.835,
+      "matched_product_id": "prod_97545",
+      "matched_product_name": "Sal|Trucotton Balloon Sleeve Embroidered Top",
+      "confidence": 0.776,
+      "similarity": 0.749,
       "occurrences": 1,
       "frames": [
         240
@@ -185,164 +148,371 @@
     },
     {
       "type": "top",
-      "color": "brown",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15105",
-      "matched_product_name": "Aubrie|Viscose+ Highneck Flatknit Sleeveless Top",
-      "confidence": 0.8,
-      "similarity": 0.655,
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15957",
+      "matched_product_name": "Chala|Cotton Corset Smocking Top",
+      "confidence": 0.775,
+      "similarity": 0.737,
+      "occurrences": 4,
+      "frames": [
+        90,
+        120,
+        150,
+        180
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_16032",
+      "matched_product_name": "Tara Skirt|Balinese Cotton Slit Skirt",
+      "confidence": 0.775,
+      "similarity": 0.814,
+      "occurrences": 4,
+      "frames": [
+        90,
+        120,
+        240,
+        450
+      ]
+    },
+    {
+      "type": "dress",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16978",
+      "matched_product_name": "Cassandra|Bubble Hem Mini Skirt",
+      "confidence": 0.762,
+      "similarity": 0.721,
+      "occurrences": 3,
+      "frames": [
+        60,
+        330,
+        510
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "floral",
+      "match_type": "similar",
+      "matched_product_id": "prod_17084",
+      "matched_product_name": "Zinnia Top|Floral Knot-Detail Top",
+      "confidence": 0.75,
+      "similarity": 0.75,
+      "occurrences": 1,
+      "frames": [
+        210
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16828",
+      "matched_product_name": "Nikki Top|Cotton Corset Top",
+      "confidence": 0.75,
+      "similarity": 0.673,
+      "occurrences": 2,
+      "frames": [
+        270,
+        510
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_42044",
+      "matched_product_name": "Somer|Linen+ Lace Detail Top With Blouson Sleeve",
+      "confidence": 0.75,
+      "similarity": 0.809,
       "occurrences": 1,
       "frames": [
         270
       ]
     },
     {
-      "type": "top",
-      "color": "black",
-      "match_type": "no_match",
-      "matched_product_id": "prod_42082",
-      "matched_product_name": "Gulnar|Trucotton Flutter Sleeve Block Print Top",
-      "confidence": 0.8,
-      "similarity": 0.727,
-      "occurrences": 1,
-      "frames": [
-        300
-      ]
-    },
-    {
       "type": "bottom",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15324",
-      "matched_product_name": "Adela|Trucotton Red Tiered Midi Dress",
-      "confidence": 0.8,
-      "similarity": 0.729,
-      "occurrences": 1,
-      "frames": [
-        300
-      ]
-    },
-    {
-      "type": "top",
-      "color": "brown",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15307",
-      "matched_product_name": "Taylor|Floral Co-Ord Set",
-      "confidence": 0.8,
-      "similarity": 0.726,
-      "occurrences": 1,
-      "frames": [
-        330
-      ]
-    },
-    {
-      "type": "top",
-      "color": "brown",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15854",
-      "matched_product_name": "Bexie|Denim Relaxed Fit Jacket",
-      "confidence": 0.8,
-      "similarity": 0.734,
-      "occurrences": 1,
-      "frames": [
-        360
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
+      "color": "navy",
       "match_type": "similar",
-      "matched_product_id": "prod_16032",
-      "matched_product_name": "Tara Skirt|Balinese Cotton Slit Skirt",
-      "confidence": 0.8,
-      "similarity": 0.744,
-      "occurrences": 3,
+      "matched_product_id": "prod_15543",
+      "matched_product_name": "Brynn|Viscose+ Navy Pleated Flare Pant With Tie-Up Waist",
+      "confidence": 0.75,
+      "similarity": 0.784,
+      "occurrences": 2,
       "frames": [
         360,
-        420,
-        450
+        540
       ]
     },
     {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15931",
-      "matched_product_name": "Gabanna|Cottton Front-Tie Crop Top",
-      "confidence": 0.8,
-      "similarity": 0.735,
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_97547",
+      "matched_product_name": "True|Trucotton Embroiderd Blouson Sleeve Top",
+      "confidence": 0.75,
+      "similarity": 0.763,
       "occurrences": 1,
       "frames": [
         390
       ]
     },
     {
-      "type": "top",
-      "color": "brown",
-      "match_type": "similar",
-      "matched_product_id": "prod_15463",
-      "matched_product_name": "Lorena Skirt|Cotton Scallop Mini Skirt",
-      "confidence": 0.8,
-      "similarity": 0.759,
-      "occurrences": 1,
-      "frames": [
-        480
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15299",
-      "matched_product_name": "Taylor Skirt|Floral Ruffle-Hem Skirt",
-      "confidence": 0.8,
-      "similarity": 0.737,
-      "occurrences": 1,
-      "frames": [
-        540
-      ]
-    },
-    {
       "type": "bottom",
-      "color": "pink",
-      "match_type": "no_match",
+      "color": "floral",
+      "match_type": "similar",
       "matched_product_id": "prod_15220",
       "matched_product_name": "Opal|Lace Detailed Floral Maxi Dress",
-      "confidence": 0.8,
-      "similarity": 0.712,
+      "confidence": 0.75,
+      "similarity": 0.72,
+      "occurrences": 1,
+      "frames": [
+        420
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16073",
+      "matched_product_name": "Maira|Cotton Front Tie Top",
+      "confidence": 0.7,
+      "similarity": 0.683,
+      "occurrences": 1,
+      "frames": [
+        180
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15748",
+      "matched_product_name": "Clemence|Cotton Poplin Corset Top",
+      "confidence": 0.7,
+      "similarity": 0.652,
+      "occurrences": 1,
+      "frames": [
+        300
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "black",
+      "match_type": "similar",
+      "matched_product_id": "prod_97557",
+      "matched_product_name": "Nico|Black Cutout Detail Ribbed Top",
+      "confidence": 0.7,
+      "similarity": 0.709,
+      "occurrences": 2,
+      "frames": [
+        330,
+        360
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16110",
+      "matched_product_name": "Kaira Top|Cotton Puff Sleeve Top",
+      "confidence": 0.7,
+      "similarity": 0.719,
+      "occurrences": 1,
+      "frames": [
+        390
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15003",
+      "matched_product_name": "Amaz|Viscose+ Highneck Scooped Hem Regular Top",
+      "confidence": 0.7,
+      "similarity": 0.669,
+      "occurrences": 1,
+      "frames": [
+        420
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16205",
+      "matched_product_name": "Vixen|Sleek Knit Sleeveless Top",
+      "confidence": 0.7,
+      "similarity": 0.708,
+      "occurrences": 1,
+      "frames": [
+        450
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_17315",
+      "matched_product_name": "Anviti|Tie-Up Metallic Dress",
+      "confidence": 0.7,
+      "similarity": 0.697,
       "occurrences": 1,
       "frames": [
         540
       ]
     },
     {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15668",
-      "matched_product_name": "Pippa|Poplin Kimono Sleeve Top",
-      "confidence": 0.8,
-      "similarity": 0.712,
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16131",
+      "matched_product_name": "Rowan|Comfy Viscose Jersey Top",
+      "confidence": 0.7,
+      "similarity": 0.67,
       "occurrences": 1,
       "frames": [
         570
       ]
     },
     {
-      "type": "bottom",
-      "color": "pink",
+      "type": "top",
+      "color": "blue",
       "match_type": "similar",
-      "matched_product_id": "prod_15295",
-      "matched_product_name": "Rihanna|Rose Detail Co-Ord Set",
-      "confidence": 0.8,
-      "similarity": 0.784,
+      "matched_product_id": "prod_15257",
+      "matched_product_name": "Verity|Light Blue Wrap Mini Skirt",
+      "confidence": 0.677,
+      "similarity": 0.728,
+      "occurrences": 5,
+      "frames": [
+        240,
+        300,
+        360,
+        480,
+        570
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "exact",
+      "matched_product_id": "prod_42076",
+      "matched_product_name": "Champa|Linen+ Eco-Printed Side Slit Tunic",
+      "confidence": 0.653,
+      "similarity": 0.748,
+      "occurrences": 2,
+      "frames": [
+        0,
+        150
+      ]
+    },
+    {
+      "type": "bag",
+      "color": "red",
+      "match_type": "similar",
+      "matched_product_id": "prod_15324",
+      "matched_product_name": "Adela|Trucotton Red Tiered Midi Dress",
+      "confidence": 0.593,
+      "similarity": 0.771,
+      "occurrences": 2,
+      "frames": [
+        450,
+        450
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_17179",
+      "matched_product_name": "Rory Skirt|Pleated Cotton Skirt",
+      "confidence": 0.586,
+      "similarity": 0.7,
+      "occurrences": 11,
+      "frames": [
+        150,
+        180,
+        210,
+        240,
+        270,
+        300,
+        330,
+        450,
+        480,
+        480,
+        510
+      ]
+    },
+    {
+      "type": "top",
+      "color": "floral",
+      "match_type": "no_match",
+      "matched_product_id": "prod_15322",
+      "matched_product_name": "Tyla|Truviscose Floral Pleated Waist Midi Dress",
+      "confidence": 0.557,
+      "similarity": 0.618,
+      "occurrences": 1,
+      "frames": [
+        0
+      ]
+    },
+    {
+      "type": "top",
+      "color": "floral",
+      "match_type": "no_match",
+      "matched_product_id": "prod_17083",
+      "matched_product_name": "Lila Top|Floral Satin Corset",
+      "confidence": 0.535,
+      "similarity": 0.629,
+      "occurrences": 1,
+      "frames": [
+        30
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "floral",
+      "match_type": "no_match",
+      "matched_product_id": "prod_15299",
+      "matched_product_name": "Taylor Skirt|Floral Ruffle-Hem Skirt",
+      "confidence": 0.535,
+      "similarity": 0.618,
+      "occurrences": 1,
+      "frames": [
+        30
+      ]
+    },
+    {
+      "type": "accessories",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15099",
+      "matched_product_name": "Barabara|Viscose+ Full Sleeve V-Knit Cardigan",
+      "confidence": 0.457,
+      "similarity": 0.743,
+      "occurrences": 1,
+      "frames": [
+        0
+      ]
+    },
+    {
+      "type": "bag",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_42075",
+      "matched_product_name": "Gulrez|Trucotton Pleated Block Print Shorts",
+      "confidence": 0.449,
+      "similarity": 0.8,
       "occurrences": 1,
       "frames": [
         570
       ]
     }
   ],
-  "raw_detections": 40,
+  "raw_detections": 66,
   "frames_processed": 20,
-  "processing_time": 53.57
+  "processing_time": 24.85
 }

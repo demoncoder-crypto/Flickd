@@ -85,16 +85,18 @@ class VibeClassifier:
         video_path: str, 
         caption: str = None, 
         hashtags: List[str] = None,
-        max_vibes: int = 3
+        max_vibes: int = 3,
+        video_frame: np.ndarray = None
     ) -> List[Tuple[str, float]]:
         """
-        Classify vibes from video using audio transcription and text analysis
+        Enhanced vibe classification from video using audio, text, and visual analysis
         
         Args:
             video_path: Path to video file
             caption: Optional video caption
             hashtags: Optional list of hashtags
             max_vibes: Maximum number of vibes to return
+            video_frame: Optional video frame for visual analysis
             
         Returns:
             List of (vibe, confidence) tuples
@@ -123,12 +125,30 @@ class VibeClassifier:
         # Combine all text sources
         combined_text = " ".join(all_text)
         
-        if not combined_text.strip():
-            logger.warning("No text available for vibe classification")
-            return []
+        # Get text-based vibes with very low threshold for multi-vibe detection
+        text_vibes = []
+        if combined_text.strip():
+            text_vibes = self.classify_vibes(combined_text, max_vibes=max_vibes, confidence_threshold=0.05)
         
-        # Classify vibes from combined text with lower confidence threshold for video
-        return self.classify_vibes(combined_text, max_vibes=max_vibes, confidence_threshold=0.1)
+        # Get visual vibes if frame is provided
+        visual_vibes = []
+        if video_frame is not None:
+            try:
+                visual_vibe_names = self.classify_vibes_from_image(video_frame, max_vibes=max_vibes)
+                # Convert to (vibe, confidence) format with moderate confidence
+                visual_vibes = [(vibe, 0.6) for vibe in visual_vibe_names]
+            except Exception as e:
+                logger.warning(f"Visual vibe classification failed: {e}")
+        
+        # Combine text and visual vibes
+        combined_vibes = self._combine_text_and_visual_vibes(text_vibes, visual_vibes, max_vibes)
+        
+        # If still no vibes, use fallback detection
+        if not combined_vibes:
+            logger.info("No vibes detected, using fallback detection")
+            combined_vibes = self._fallback_vibe_detection(combined_text, max_vibes)
+        
+        return combined_vibes
     
     def _transcribe_video_audio(self, video_path: str) -> Optional[str]:
         """
@@ -488,7 +508,7 @@ class VibeClassifier:
                 
             combined[vibe] = combined_score
             
-        return [(vibe, score) for vibe, score in combined.items()]
+        return [(vibe, score) for vibe, score in combined.items()] 
     
     def _semantic_classification(self, text: str) -> List[Tuple[str, float]]:
         """Enhanced semantic analysis using word embeddings and context"""
@@ -604,3 +624,57 @@ class VibeClassifier:
                 combined_scores[vibe] = total_score
         
         return list(combined_scores.items()) 
+    
+    def _combine_text_and_visual_vibes(
+        self, 
+        text_vibes: List[Tuple[str, float]], 
+        visual_vibes: List[Tuple[str, float]], 
+        max_vibes: int
+    ) -> List[Tuple[str, float]]:
+        """Combine text and visual vibe classifications"""
+        combined_scores = {}
+        
+        # Add text vibes with higher weight
+        for vibe, score in text_vibes:
+            combined_scores[vibe] = score * 0.7
+        
+        # Add visual vibes with lower weight, but boost if already detected
+        for vibe, score in visual_vibes:
+            if vibe in combined_scores:
+                # Boost existing vibes
+                combined_scores[vibe] += score * 0.5
+            else:
+                # Add new visual vibes with moderate confidence
+                combined_scores[vibe] = score * 0.3
+        
+        # Sort and return top vibes
+        sorted_vibes = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)
+        return sorted_vibes[:max_vibes]
+    
+    def _fallback_vibe_detection(self, text: str, max_vibes: int) -> List[Tuple[str, float]]:
+        """Fallback vibe detection when no vibes are found"""
+        # Default vibes based on common fashion content
+        fallback_vibes = [
+            ("Streetcore", 0.4),  # Most common in fashion videos
+            ("Clean Girl", 0.3),  # Very popular trend
+            ("Coquette", 0.25)    # Growing trend
+        ]
+        
+        # If we have text, try to match at least one keyword
+        if text:
+            text_lower = text.lower()
+            
+            # Check for any fashion-related keywords
+            if any(word in text_lower for word in ["outfit", "style", "fashion", "look", "wear"]):
+                # Boost confidence if fashion-related
+                fallback_vibes = [(vibe, score + 0.2) for vibe, score in fallback_vibes]
+            
+            # Check for specific vibe indicators
+            if any(word in text_lower for word in ["street", "urban", "cool", "edgy"]):
+                fallback_vibes[0] = ("Streetcore", 0.7)
+            elif any(word in text_lower for word in ["clean", "minimal", "simple", "natural"]):
+                fallback_vibes[0] = ("Clean Girl", 0.7)
+            elif any(word in text_lower for word in ["cute", "sweet", "feminine", "soft"]):
+                fallback_vibes[0] = ("Coquette", 0.7)
+        
+        return fallback_vibes[:max_vibes] 

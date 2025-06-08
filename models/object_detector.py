@@ -40,7 +40,7 @@ class FashionDetector:
         self.fashion_mapping = {
             "person": "person",
             "backpack": "bag",
-            "handbag": "bag", 
+            "handbag": "bag",
             "suitcase": "bag",
             "tie": "accessories",
             "umbrella": "accessories"
@@ -55,7 +55,7 @@ class FashionDetector:
             return model
         except Exception as e:
             logger.error(f"Failed to load YOLO model: {e}")
-            raise
+        raise
     
     def detect(self, frame: np.ndarray) -> List[Dict]:
         """
@@ -116,14 +116,14 @@ class FashionDetector:
                                 'area': (x2 - x1) * (y2 - y1)
                             }
                             detections.append(detection)
-            
+                            
             # Enhanced: Generate fashion detections from person boxes
             for person_box in person_boxes:
                 fashion_detections = self._generate_fashion_from_person(
                     frame, person_box['bbox'], person_box['confidence']
                 )
                 detections.extend(fashion_detections)
-            
+                
             # Remove duplicates and low-quality detections
             detections = self._filter_detections(detections)
             
@@ -133,7 +133,7 @@ class FashionDetector:
         except Exception as e:
             logger.error(f"Detection failed: {e}")
             return []
-    
+        
     def _generate_fashion_from_person(
         self, 
         frame: np.ndarray, 
@@ -212,9 +212,9 @@ class FashionDetector:
                     y1 + int(height * 0.3)
                 ],
                 'area': width * height * 0.25
-            }
+                }
             detections.append(accessories_detection)
-        
+                    
         return detections
     
     def _analyze_outfit_style(self, person_region: np.ndarray) -> str:

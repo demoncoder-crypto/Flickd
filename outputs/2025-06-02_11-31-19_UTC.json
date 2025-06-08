@@ -8,37 +8,265 @@
     "duration": 96.66666666666667
   },
   "vibes": [
-    "Clean Girl"
+    "Clean Girl",
+    "Boho",
+    "Cottagecore"
   ],
   "products": [
     {
       "type": "top",
-      "color": "pink",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_17031",
+      "matched_product_name": "Jamie|Cropped Boxy Shirt",
+      "confidence": 0.8,
+      "similarity": 0.7,
+      "occurrences": 1,
+      "frames": [
+        0
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15195",
+      "matched_product_name": "Alaia Shrug|Full Puff Sleeve Shrug",
+      "confidence": 0.8,
+      "similarity": 0.688,
+      "occurrences": 8,
+      "frames": [
+        30,
+        90,
+        240,
+        480,
+        540,
+        630,
+        720,
+        870
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16572",
+      "matched_product_name": "Althea|Relaxed Sleeveless Top",
+      "confidence": 0.8,
+      "similarity": 0.682,
+      "occurrences": 1,
+      "frames": [
+        60
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_42068",
+      "matched_product_name": "Arther|Truviscose Top With Intricate Contrast Embroidery",
+      "confidence": 0.8,
+      "similarity": 0.682,
+      "occurrences": 2,
+      "frames": [
+        150,
+        420
+      ]
+    },
+    {
+      "type": "top",
+      "color": "plaid",
+      "match_type": "similar",
+      "matched_product_id": "prod_17173",
+      "matched_product_name": "Maxie|Cropped Checked Shirt",
+      "confidence": 0.8,
+      "similarity": 0.696,
+      "occurrences": 1,
+      "frames": [
+        180
+      ]
+    },
+    {
+      "type": "top",
+      "color": "navy",
+      "match_type": "similar",
+      "matched_product_id": "prod_15601",
+      "matched_product_name": "Alexandra|Viscose+ Navy Crop Vest With Side Tie-Up",
+      "confidence": 0.8,
+      "similarity": 0.687,
+      "occurrences": 1,
+      "frames": [
+        210
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15777",
+      "matched_product_name": "Brie|Crop Top With Big Bow Detail",
+      "confidence": 0.8,
+      "similarity": 0.651,
+      "occurrences": 1,
+      "frames": [
+        450
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
       "match_type": "no_match",
+      "matched_product_id": "prod_15748",
+      "matched_product_name": "Clemence|Cotton Poplin Corset Top",
+      "confidence": 0.8,
+      "similarity": 0.638,
+      "occurrences": 1,
+      "frames": [
+        510
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_16584",
+      "matched_product_name": "Crystal|Front Twist Top",
+      "confidence": 0.8,
+      "similarity": 0.665,
+      "occurrences": 2,
+      "frames": [
+        750,
+        840
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
       "matched_product_id": "prod_15003",
       "matched_product_name": "Amaz|Viscose+ Highneck Scooped Hem Regular Top",
       "confidence": 0.8,
-      "similarity": 0.662,
-      "occurrences": 7,
+      "similarity": 0.695,
+      "occurrences": 1,
       "frames": [
-        0,
-        30,
-        90,
-        180,
-        630,
-        780,
+        780
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "no_match",
+      "matched_product_id": "prod_15557",
+      "matched_product_name": "Diane|Trucotton High Neck Top With Full Sleeve",
+      "confidence": 0.8,
+      "similarity": 0.645,
+      "occurrences": 1,
+      "frames": [
         810
       ]
     },
     {
       "type": "bottom",
-      "color": "gray",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_15403",
+      "matched_product_name": "Chicago|Rescued Poly Layered Assymetric Neck Tie Top",
+      "confidence": 0.767,
+      "similarity": 0.662,
+      "occurrences": 9,
+      "frames": [
+        90,
+        120,
+        120,
+        150,
+        630,
+        660,
+        660,
+        690,
+        750
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "striped",
+      "match_type": "similar",
+      "matched_product_id": "prod_15924",
+      "matched_product_name": "Shawn|Suave Cotton Striped Shirt",
+      "confidence": 0.751,
+      "similarity": 0.685,
+      "occurrences": 3,
+      "frames": [
+        30,
+        180,
+        570
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "floral",
       "match_type": "no_match",
+      "matched_product_id": "prod_15624",
+      "matched_product_name": "Aloma|Rescued Satin Floral Printed Shirt",
+      "confidence": 0.75,
+      "similarity": 0.58,
+      "occurrences": 1,
+      "frames": [
+        60
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "unknown",
+      "match_type": "no_match",
+      "matched_product_id": "prod_17302",
+      "matched_product_name": "Zayna|Button Down Denim Dress",
+      "confidence": 0.75,
+      "similarity": 0.608,
+      "occurrences": 3,
+      "frames": [
+        210,
+        240,
+        870
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "red",
+      "match_type": "similar",
+      "matched_product_id": "prod_15324",
+      "matched_product_name": "Adela|Trucotton Red Tiered Midi Dress",
+      "confidence": 0.75,
+      "similarity": 0.683,
+      "occurrences": 3,
+      "frames": [
+        690,
+        720,
+        810
+      ]
+    },
+    {
+      "type": "top",
+      "color": "plaid",
+      "match_type": "similar",
+      "matched_product_id": "prod_15640",
+      "matched_product_name": "Skylar|Viscose+ Checked Pattern Halter Neck Vest",
+      "confidence": 0.726,
+      "similarity": 0.735,
+      "occurrences": 2,
+      "frames": [
+        270,
+        300
+      ]
+    },
+    {
+      "type": "bottom",
+      "color": "grey",
+      "match_type": "similar",
       "matched_product_id": "prod_15555",
       "matched_product_name": "Emerson|Viscose+ Grey Checked Mini Skirt",
-      "confidence": 0.8,
-      "similarity": 0.711,
-      "occurrences": 9,
+      "confidence": 0.703,
+      "similarity": 0.684,
+      "occurrences": 8,
       "frames": [
         0,
         420,
@@ -47,282 +275,60 @@
         510,
         540,
         660,
-        810,
         840
       ]
     },
     {
-      "type": "top",
-      "color": "pink",
-      "match_type": "no_match",
-      "matched_product_id": "prod_17031",
-      "matched_product_name": "Jamie|Cropped Boxy Shirt",
-      "confidence": 0.8,
-      "similarity": 0.644,
-      "occurrences": 1,
-      "frames": [
-        30
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_16584",
-      "matched_product_name": "Crystal|Front Twist Top",
-      "confidence": 0.8,
-      "similarity": 0.634,
-      "occurrences": 5,
-      "frames": [
-        60,
-        120,
-        240,
-        690,
-        750
-      ]
-    },
-    {
       "type": "bottom",
-      "color": "black",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15518",
-      "matched_product_name": "Daira|Cotton Striped Shirt Dress",
-      "confidence": 0.8,
-      "similarity": 0.629,
-      "occurrences": 1,
-      "frames": [
-        60
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "black",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15403",
-      "matched_product_name": "Chicago|Rescued Poly Layered Assymetric Neck Tie Top",
-      "confidence": 0.8,
-      "similarity": 0.652,
-      "occurrences": 6,
-      "frames": [
-        90,
-        120,
-        150,
-        150,
-        630,
-        750
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "black",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15624",
-      "matched_product_name": "Aloma|Rescued Satin Floral Printed Shirt",
-      "confidence": 0.8,
-      "similarity": 0.683,
-      "occurrences": 3,
-      "frames": [
-        180,
-        690,
-        720
-      ]
-    },
-    {
-      "type": "top",
-      "color": "pink",
-      "match_type": "no_match",
-      "matched_product_id": "prod_16151",
-      "matched_product_name": "Elizabeth Top|Cotton Gingham Crop Top",
-      "confidence": 0.8,
-      "similarity": 0.626,
-      "occurrences": 1,
-      "frames": [
-        210
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15924",
-      "matched_product_name": "Shawn|Suave Cotton Striped Shirt",
-      "confidence": 0.8,
-      "similarity": 0.666,
-      "occurrences": 2,
-      "frames": [
-        210,
-        390
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_17302",
-      "matched_product_name": "Zayna|Button Down Denim Dress",
-      "confidence": 0.8,
-      "similarity": 0.617,
-      "occurrences": 2,
-      "frames": [
-        240,
-        870
-      ]
-    },
-    {
-      "type": "top",
-      "color": "black",
-      "match_type": "no_match",
+      "color": "unknown",
+      "match_type": "similar",
       "matched_product_id": "prod_42076",
       "matched_product_name": "Champa|Linen+ Eco-Printed Side Slit Tunic",
-      "confidence": 0.8,
-      "similarity": 0.68,
+      "confidence": 0.689,
+      "similarity": 0.702,
       "occurrences": 5,
       "frames": [
         270,
-        270,
-        300,
-        300,
-        330
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_16131",
-      "matched_product_name": "Rowan|Comfy Viscose Jersey Top",
-      "confidence": 0.8,
-      "similarity": 0.613,
-      "occurrences": 1,
-      "frames": [
-        330
-      ]
-    },
-    {
-      "type": "top",
-      "color": "black",
-      "match_type": "similar",
-      "matched_product_id": "prod_17179",
-      "matched_product_name": "Rory Skirt|Pleated Cotton Skirt",
-      "confidence": 0.8,
-      "similarity": 0.743,
-      "occurrences": 3,
-      "frames": [
+        330,
         390,
         570,
         600
       ]
     },
     {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15748",
-      "matched_product_name": "Clemence|Cotton Poplin Corset Top",
-      "confidence": 0.8,
-      "similarity": 0.643,
-      "occurrences": 2,
-      "frames": [
-        420,
-        510
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_42068",
-      "matched_product_name": "Arther|Truviscose Top With Intricate Contrast Embroidery",
-      "confidence": 0.8,
-      "similarity": 0.655,
-      "occurrences": 2,
-      "frames": [
-        450,
-        480
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15195",
-      "matched_product_name": "Alaia Shrug|Full Puff Sleeve Shrug",
-      "confidence": 0.8,
-      "similarity": 0.658,
-      "occurrences": 1,
-      "frames": [
-        540
-      ]
-    },
-    {
       "type": "bottom",
-      "color": "navy",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15257",
-      "matched_product_name": "Verity|Light Blue Wrap Mini Skirt",
-      "confidence": 0.8,
-      "similarity": 0.69,
-      "occurrences": 1,
-      "frames": [
-        570
-      ]
-    },
-    {
-      "type": "bottom",
-      "color": "navy",
-      "match_type": "no_match",
-      "matched_product_id": "prod_17247",
-      "matched_product_name": "Eva|Back Detail Mini Dress",
-      "confidence": 0.8,
-      "similarity": 0.694,
-      "occurrences": 1,
-      "frames": [
-        600
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15557",
-      "matched_product_name": "Diane|Trucotton High Neck Top With Full Sleeve",
-      "confidence": 0.8,
-      "similarity": 0.66,
+      "color": "floral",
+      "match_type": "similar",
+      "matched_product_id": "prod_17084",
+      "matched_product_name": "Zinnia Top|Floral Knot-Detail Top",
+      "confidence": 0.648,
+      "similarity": 0.647,
       "occurrences": 3,
       "frames": [
-        660,
-        720,
+        300,
+        330,
+        360
+      ]
+    },
+    {
+      "type": "top",
+      "color": "unknown",
+      "match_type": "similar",
+      "matched_product_id": "prod_17179",
+      "matched_product_name": "Rory Skirt|Pleated Cotton Skirt",
+      "confidence": 0.619,
+      "similarity": 0.712,
+      "occurrences": 5,
+      "frames": [
+        360,
+        390,
+        540,
+        600,
         780
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_16097",
-      "matched_product_name": "Jasper Top|Ruched Cotton Top",
-      "confidence": 0.8,
-      "similarity": 0.631,
-      "occurrences": 1,
-      "frames": [
-        840
-      ]
-    },
-    {
-      "type": "top",
-      "color": "gray",
-      "match_type": "no_match",
-      "matched_product_id": "prod_15232",
-      "matched_product_name": "Odina|Trucotton Bomber Jacket With Rib Collar",
-      "confidence": 0.8,
-      "similarity": 0.68,
-      "occurrences": 1,
-      "frames": [
-        870
       ]
     }
   ],
-  "raw_detections": 58,
+  "raw_detections": 62,
   "frames_processed": 30,
-  "processing_time": 166.45
+  "processing_time": 80.14
 }
