@@ -18,7 +18,7 @@ Flickd AI is a cutting-edge computer vision and NLP system designed to analyze f
 
 ## 🏆 **Recent Major Improvements**
 
-### ✅ **Fixed Critical Issues (December 2024)**
+### ✅ **Fixed Critical Issues
 
 1. **🎯 Similarity Score Enhancement**
    - **BEFORE**: Similarity scores capped at 0.6-0.8 range
