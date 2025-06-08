@@ -5,6 +5,9 @@ Single command to run the complete system
 """
 
 import os
+# Fix OpenMP conflict that crashes the server
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+
 import sys
 import json
 import logging
@@ -125,7 +128,7 @@ def start_api_server():
     try:
         uvicorn.run(
             app,
-            host="0.0.0.0",
+            host="127.0.0.1",
             port=8000,
             log_level="info"
         )
@@ -238,7 +241,7 @@ def show_results(output_dir: str = "outputs"):
 def main():
     """Main function"""
     parser = argparse.ArgumentParser(description="Flickd AI Engine")
-    parser.add_argument('--mode', choices=['process', 'api', 'demo', 'results'], 
+    parser.add_argument('--mode', choices=['process', 'api', 'demo', 'results', 'frontend'], 
                        default='process', help='Run mode')
     parser.add_argument('--videos', default='videos', help='Video directory')
     parser.add_argument('--output', default='outputs', help='Output directory')
@@ -268,6 +271,13 @@ def main():
         
     elif args.mode == 'results':
         show_results(args.output)
+        
+    elif args.mode == 'frontend':
+        print("\n🌐 Starting Frontend Server...")
+        import subprocess
+        import sys
+        frontend_path = Path(__file__).parent / "frontend" / "server.py"
+        subprocess.run([sys.executable, str(frontend_path)])
 
 if __name__ == "__main__":
     main() 

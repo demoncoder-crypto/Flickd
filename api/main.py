@@ -30,13 +30,20 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Add CORS middleware
+# Add CORS middleware with explicit localhost support
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000", 
+        "http://localhost:8080",
+        "http://127.0.0.1:8080",
+        "*"
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
 
 # Initialize pipeline (done once at startup)
@@ -97,6 +104,11 @@ async def shutdown_event():
     logger.info("Flickd AI Engine shutdown complete")
 
 # Health check endpoint
+@app.options("/process-video")
+async def process_video_options():
+    """Handle CORS preflight for process-video endpoint"""
+    return {"message": "OK"}
+
 @app.get("/health", response_model=HealthResponse)
 async def health_check():
     """Check if the service is healthy"""
@@ -125,6 +137,7 @@ async def process_video(
     Returns:
         Analysis results with detected products and vibes
     """
+    logger.info(f"Received video processing request: {video.filename}, size: {video.size if hasattr(video, 'size') else 'unknown'}")
     # Validate file type
     file_extension = Path(video.filename).suffix.lower()
     if file_extension not in SUPPORTED_VIDEO_FORMATS:
@@ -153,6 +166,10 @@ async def process_video(
         with open(temp_video_path, "wb") as f:
             shutil.copyfileobj(video.file, f)
         
+        # Check if pipeline is available
+        if pipeline is None:
+            raise HTTPException(status_code=503, detail="AI pipeline not initialized")
+        
         # Process video in thread pool to avoid blocking
         loop = asyncio.get_event_loop()
         results = await loop.run_in_executor(
@@ -167,24 +184,40 @@ async def process_video(
         # Schedule cleanup
         background_tasks.add_task(cleanup_temp_files, temp_dir)
         
-        # Convert to response model
-        response = VideoAnalysisResponse(
-            video_id=results['video_id'],
-            vibes=results['vibes'],
-            products=[ProductMatch(**p) for p in results['products']],
-            metadata=results['metadata'],
-            frames_processed=results['frames_processed'],
-            processing_time=results['processing_time']
-        )
+        # Validate results
+        if not results or 'video_id' not in results:
+            raise HTTPException(status_code=500, detail="Invalid processing results")
         
-        return response
+        # Convert to response model with error handling
+        try:
+            response = VideoAnalysisResponse(
+                video_id=results['video_id'],
+                vibes=results.get('vibes', []),
+                products=[ProductMatch(**p) for p in results.get('products', [])],
+                metadata=results.get('metadata', {}),
+                frames_processed=results.get('frames_processed', 0),
+                processing_time=results.get('processing_time', 0.0)
+            )
+            
+            logger.info(f"Successfully processed video {results['video_id']} with {len(results.get('vibes', []))} vibes and {len(results.get('products', []))} products")
+            return response
+            
+        except Exception as model_error:
+            logger.error(f"Error creating response model: {model_error}")
+            raise HTTPException(status_code=500, detail=f"Error formatting response: {str(model_error)}")
         
     except Exception as e:
-        logger.error(f"Error processing video: {e}")
+        logger.error(f"Error processing video: {e}", exc_info=True)
         # Cleanup on error
-        if os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir)
-        raise HTTPException(status_code=500, detail=str(e))
+        try:
+            if os.path.exists(temp_dir):
+                shutil.rmtree(temp_dir)
+        except Exception as cleanup_error:
+            logger.error(f"Error during cleanup: {cleanup_error}")
+        
+        # Return a proper error response instead of crashing
+        error_detail = f"Video processing failed: {str(e)}"
+        raise HTTPException(status_code=500, detail=error_detail)
 
 # Batch processing endpoint
 @app.post("/process-batch")

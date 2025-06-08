@@ -206,6 +206,61 @@ class CustomFashionDetector:
         
         return detections
 
+    def extract_fashion_regions(
+        self, 
+        frame: np.ndarray, 
+        detections: List[Dict]
+    ) -> List[tuple]:
+        """Extract fashion item regions from frame"""
+        regions = []
+        
+        for detection in detections:
+            x1, y1, x2, y2 = detection['bbox']
+            
+            # Ensure coordinates are within frame bounds
+            h, w = frame.shape[:2]
+            x1 = max(0, min(x1, w-1))
+            y1 = max(0, min(y1, h-1))
+            x2 = max(x1+1, min(x2, w))
+            y2 = max(y1+1, min(y2, h))
+            
+            # Extract region
+            region = frame[y1:y2, x1:x2]
+            
+            if region.size > 0:
+                regions.append((region, detection))
+        
+        return regions
+
+    def visualize_detections(
+        self, 
+        frame: np.ndarray, 
+        detections: List[Dict], 
+        output_path: str
+    ):
+        """Visualize detections on frame and save"""
+        import cv2
+        
+        # Create a copy of the frame
+        vis_frame = frame.copy()
+        
+        # Draw bounding boxes
+        for detection in detections:
+            x1, y1, x2, y2 = detection['bbox']
+            confidence = detection['confidence']
+            class_name = detection['class']
+            
+            # Draw rectangle
+            cv2.rectangle(vis_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            
+            # Draw label
+            label = f"{class_name}: {confidence:.2f}"
+            cv2.putText(vis_frame, label, (x1, y1-10), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        
+        # Save visualization
+        cv2.imwrite(output_path, cv2.cvtColor(vis_frame, cv2.COLOR_RGB2BGR))
+
 
 def load_best_available_model() -> CustomFashionDetector:
     """Load the best available fashion detection model"""

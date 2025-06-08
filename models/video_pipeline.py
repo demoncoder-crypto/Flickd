@@ -37,7 +37,7 @@ class VideoAnalysisPipeline:
             logger.info("Using custom trained fashion detector")
         except Exception as e:
             logger.warning(f"Failed to load custom model, using original detector: {e}")
-        self.fashion_detector = FashionDetector(device=device)
+            self.fashion_detector = FashionDetector(device=device)
             
         self.product_matcher = ProductMatcher(device=device)
         self.vibe_classifier = VibeClassifier(use_transformer=use_transformer_nlp)
