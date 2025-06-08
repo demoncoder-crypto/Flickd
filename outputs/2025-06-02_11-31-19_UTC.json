@@ -270,7 +270,7 @@
       ]
     },
     {
-      "type": "top",
+      "type": "bottom",
       "color": "unknown",
       "match_type": "exact",
       "matched_product_id": "prod_42076",
@@ -301,7 +301,7 @@
       ]
     },
     {
-      "type": "top",
+      "type": "bottom",
       "color": "unknown",
       "match_type": "exact",
       "matched_product_id": "prod_17179",
@@ -318,5 +318,5 @@
   ],
   "raw_detections": 62,
   "frames_processed": 30,
-  "processing_time": 20.54
+  "processing_time": 14.51
 }

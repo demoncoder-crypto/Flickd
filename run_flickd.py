@@ -268,8 +268,6 @@ def main():
         
     elif args.mode == 'results':
         show_results(args.output)
-    
-    print(f"\n✨ Flickd AI Engine ready for hackathon submission!")
 
 if __name__ == "__main__":
     main() 

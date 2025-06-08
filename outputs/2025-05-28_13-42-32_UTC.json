@@ -176,7 +176,7 @@
       ]
     },
     {
-      "type": "top",
+      "type": "bottom",
       "color": "unknown",
       "match_type": "exact",
       "matched_product_id": "prod_42082",
@@ -359,7 +359,7 @@
       ]
     },
     {
-      "type": "bag",
+      "type": "bottom",
       "color": "unknown",
       "match_type": "exact",
       "matched_product_id": "prod_16978",
@@ -480,5 +480,5 @@
   ],
   "raw_detections": 68,
   "frames_processed": 26,
-  "processing_time": 18.28
+  "processing_time": 13.51
 }

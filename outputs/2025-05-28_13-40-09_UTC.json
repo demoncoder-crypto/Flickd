@@ -396,7 +396,7 @@
       ]
     },
     {
-      "type": "bag",
+      "type": "bottom",
       "color": "white",
       "match_type": "exact",
       "matched_product_id": "prod_15348",
@@ -466,5 +466,5 @@
   ],
   "raw_detections": 66,
   "frames_processed": 20,
-  "processing_time": 13.97
+  "processing_time": 12.25
 }
