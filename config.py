@@ -37,10 +37,10 @@ FASHION_CLASSES = [
     "accessories"  # Jewelry, hats, etc.
 ]
 
-# Product Matching
+# Product Matching (Flickd Requirements)
 FAISS_INDEX_PATH = MODELS_CACHE_DIR / "product_index.faiss"
-MATCH_THRESHOLD_EXACT = 0.15    # Realistic threshold for exact matches
-MATCH_THRESHOLD_SIMILAR = 0.05  # Realistic threshold for similar matches
+MATCH_THRESHOLD_EXACT = 0.9     # Exact Match: > 0.9 (Flickd Requirement)
+MATCH_THRESHOLD_SIMILAR = 0.75  # Similar Match: 0.75-0.9 (Flickd Requirement)
 
 # Video Processing
 MAX_FRAMES_TO_PROCESS = 30  # Process more frames for better detection

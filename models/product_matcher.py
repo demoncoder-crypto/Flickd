@@ -119,7 +119,7 @@ class ProductMatcher:
         
         for idx, row in tqdm(self.catalog.iterrows(), total=len(self.catalog), desc="Generating product embeddings"):
             try:
-                # Load image from URL
+                # Load image from URL - handle both catalog formats
                 image_url = row.get('shopify_cdn_url', row.get('image_url', ''))
                 image = self._load_image_from_url(image_url)
                 if image is None:
@@ -239,73 +239,159 @@ class ProductMatcher:
     def match_product(
         self, 
         image: np.ndarray,
+        detected_color: str = None,
         top_k: int = 5
     ) -> List[Dict]:
         """
-        Match detected fashion item to products in catalog
+        Enhanced product matching with color awareness and improved similarity
         
         Args:
-            image: Cropped fashion item image (numpy array)
+            image: Cropped fashion item image (RGB)
+            detected_color: Color detected from YOLO (optional)
             top_k: Number of top matches to return
             
         Returns:
-            List of matches with format:
-            {
-                'product_id': str,
-                'product_name': str,
-                'similarity': float,
-                'match_type': str ('exact', 'similar', 'no_match'),
-                'rank': int
-            }
+            List of product matches with enhanced scoring
         """
         if not CLIP_AVAILABLE or self.faiss_index is None:
-            logger.warning("Product matching not available without CLIP models")
+            logger.warning("CLIP not available or index not loaded")
             return []
-            
-        # Convert numpy array to PIL Image
-        pil_image = Image.fromarray(image)
         
-        # Generate embedding
-        query_embedding = self._generate_image_embedding(pil_image)
-        query_embedding = query_embedding.reshape(1, -1).astype('float32')
-        
-        # Normalize for cosine similarity
-        faiss.normalize_L2(query_embedding)
-        
-        # Search in FAISS index
-        distances, indices = self.faiss_index.search(query_embedding, top_k)
-        
-        # Process results
-        matches = []
-        for rank, (dist, idx) in enumerate(zip(distances[0], indices[0])):
-            if idx == -1:  # No match found
-                continue
-                
-            similarity = float(dist)  # Cosine similarity
-            product = self.catalog.iloc[idx]
-            
-            # Determine match type
-            if similarity >= MATCH_THRESHOLD_EXACT:
-                match_type = "exact"
-            elif similarity >= MATCH_THRESHOLD_SIMILAR:
-                match_type = "similar"
+        try:
+            # Convert numpy array to PIL Image
+            if isinstance(image, np.ndarray):
+                image_pil = Image.fromarray(image.astype('uint8'))
             else:
-                match_type = "no_match"
+                image_pil = image
+            
+            # Generate embedding for the query image
+            query_embedding = self._generate_image_embedding(image_pil)
+            
+            if query_embedding is None:
+                return []
+            
+            # Normalize for cosine similarity
+            query_embedding = query_embedding.reshape(1, -1).astype('float32')
+            faiss.normalize_L2(query_embedding)
+            
+            # Search in FAISS index
+            similarities, indices = self.faiss_index.search(query_embedding, min(top_k * 2, len(self.catalog)))
+            
+            matches = []
+            for i, (similarity, idx) in enumerate(zip(similarities[0], indices[0])):
+                if idx >= len(self.catalog):
+                    continue
+                    
+                product = self.catalog.iloc[idx]
                 
-            match = {
-                'product_id': product['product_id'],
-                'product_name': product.get('title', product.get('product_name', 'Unknown Product')),
-                'similarity': similarity,
-                'match_type': match_type,
-                'rank': rank + 1,
-                'category': product.get('category', product.get('type', 'unknown')),
-                'color': product.get('color', 'unknown'),
-                'image_url': product.get('shopify_cdn_url', product.get('image_url', ''))
-            }
+                # Enhanced similarity calculation with color bonus
+                enhanced_similarity = self._calculate_enhanced_similarity(
+                    similarity, product, detected_color
+                )
+                
+                # Classify match type using Flickd requirements
+                match_type = self._classify_match_type(enhanced_similarity)
+                
+                # Handle both 'title' (real catalog) and 'product_name' (demo catalog)
+                product_name = product.get('title', product.get('product_name', 'Unknown Product'))
+                
+                match = {
+                    'product_id': product['product_id'],
+                    'product_name': product_name,
+                    'similarity': float(enhanced_similarity),
+                    'match_type': match_type,
+                    'confidence': float(enhanced_similarity),
+                    'rank': i + 1,
+                    'category': product.get('category', 'unknown'),
+                    'color': product.get('color', 'unknown'),
+                    'image_url': product.get('shopify_cdn_url', product.get('image_url', ''))
+                }
+                
+                # Only include matches above minimum threshold
+                if enhanced_similarity >= 0.5:  # Minimum viable similarity
+                    matches.append(match)
             
-            matches.append(match)
+            # Sort by enhanced similarity and return top_k
+            matches.sort(key=lambda x: x['similarity'], reverse=True)
+            return matches[:top_k]
             
-        return matches
+        except Exception as e:
+            logger.error(f"Error in product matching: {e}")
+            return []
+    
+    def _calculate_enhanced_similarity(
+        self, 
+        base_similarity: float, 
+        product: pd.Series, 
+        detected_color: str = None
+    ) -> float:
+        """
+        Calculate enhanced similarity with color and category bonuses
+        
+        Args:
+            base_similarity: Base CLIP similarity score
+            product: Product information from catalog
+            detected_color: Color detected from the fashion item
+            
+        Returns:
+            Enhanced similarity score
+        """
+        enhanced_score = base_similarity
+        
+        # Color matching bonus (up to +0.1)
+        if detected_color and detected_color != 'unknown':
+            product_color = product.get('color', '').lower()
+            detected_color_lower = detected_color.lower()
+            
+            if product_color == detected_color_lower:
+                enhanced_score += 0.1  # Exact color match bonus
+            elif self._are_similar_colors(detected_color_lower, product_color):
+                enhanced_score += 0.05  # Similar color bonus
+        
+        # Category consistency bonus (up to +0.05)
+        # This would require category detection from YOLO, which we can add
+        
+        # Popularity/quality bonus based on product metadata
+        if hasattr(product, 'rating') and product.get('rating', 0) > 4.0:
+            enhanced_score += 0.02
+        
+        # Ensure score doesn't exceed 1.0
+        return min(enhanced_score, 1.0)
+    
+    def _are_similar_colors(self, color1: str, color2: str) -> bool:
+        """Check if two colors are similar"""
+        similar_color_groups = [
+            ['black', 'dark', 'charcoal'],
+            ['white', 'cream', 'ivory', 'beige'],
+            ['red', 'crimson', 'burgundy'],
+            ['blue', 'navy', 'royal'],
+            ['green', 'forest', 'olive'],
+            ['pink', 'rose', 'blush'],
+            ['brown', 'tan', 'camel'],
+            ['gray', 'grey', 'silver']
+        ]
+        
+        for group in similar_color_groups:
+            if color1 in group and color2 in group:
+                return True
+        return False
+    
+    def _classify_match_type(self, similarity: float) -> str:
+        """
+        Classify match type according to Flickd requirements
+        
+        Args:
+            similarity: Similarity score (0-1)
+            
+        Returns:
+            Match type: 'exact', 'similar', or 'no_match'
+        """
+        if similarity > MATCH_THRESHOLD_EXACT:  # > 0.9
+            return 'exact'
+        elif similarity >= MATCH_THRESHOLD_SIMILAR:  # 0.75-0.9
+            return 'similar'
+        else:  # < 0.75
+            return 'no_match'
     
     def update_catalog(self, new_catalog_path: Path):
         """Update product catalog and rebuild index"""

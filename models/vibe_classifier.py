@@ -1,8 +1,11 @@
-"""Enhanced vibe classification with both text and visual analysis"""
+"""Enhanced vibe classification with audio, text and visual analysis"""
 import re
 import numpy as np
 from typing import List, Dict, Optional, Tuple
 import logging
+from pathlib import Path
+import subprocess
+import tempfile
 
 try:
     import spacy
@@ -17,16 +20,19 @@ try:
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
 
+import whisper
+
 from config import SUPPORTED_VIBES, VIBE_KEYWORDS
 
 logger = logging.getLogger(__name__)
 
 
 class VibeClassifier:
-    """Enhanced vibe classifier with text and visual analysis"""
+    """Enhanced vibe classifier with audio transcription, text and visual analysis"""
     
-    def __init__(self, use_transformer: bool = False):
+    def __init__(self, use_transformer: bool = True, use_audio: bool = True):
         self.use_transformer = use_transformer and TRANSFORMERS_AVAILABLE
+        self.use_audio = use_audio
         self.supported_vibes = SUPPORTED_VIBES
         self.vibe_keywords = VIBE_KEYWORDS
         
@@ -45,6 +51,11 @@ class VibeClassifier:
         self.transformer_pipeline = None
         if self.use_transformer and TRANSFORMERS_AVAILABLE:
             self._initialize_transformer()
+            
+        # Initialize Whisper model for audio transcription
+        self.whisper_model = None
+        if self.use_audio:
+            self._initialize_whisper()
     
     def _initialize_transformer(self):
         """Initialize transformer model for text classification"""
@@ -59,22 +70,149 @@ class VibeClassifier:
             logger.error(f"Failed to initialize transformer model: {e}")
             self.transformer_pipeline = None
     
+    def _initialize_whisper(self):
+        """Initialize Whisper model for audio transcription"""
+        try:
+            # Use base model for good balance of speed/accuracy
+            self.whisper_model = whisper.load_model("base")
+            logger.info("Initialized Whisper model for audio transcription")
+        except Exception as e:
+            logger.error(f"Failed to initialize Whisper model: {e}")
+            self.whisper_model = None
+    
+    def classify_vibes_from_video(
+        self, 
+        video_path: str, 
+        caption: str = None, 
+        hashtags: List[str] = None,
+        max_vibes: int = 3
+    ) -> List[Tuple[str, float]]:
+        """
+        Classify vibes from video using audio transcription and text analysis
+        
+        Args:
+            video_path: Path to video file
+            caption: Optional video caption
+            hashtags: Optional list of hashtags
+            max_vibes: Maximum number of vibes to return
+            
+        Returns:
+            List of (vibe, confidence) tuples
+        """
+        all_text = []
+        
+        # Add caption if provided
+        if caption:
+            all_text.append(caption)
+        
+        # Add hashtags if provided
+        if hashtags:
+            hashtag_text = " ".join(hashtags)
+            all_text.append(hashtag_text)
+        
+        # Extract audio and transcribe if Whisper is available
+        if self.use_audio and self.whisper_model:
+            try:
+                audio_transcript = self._transcribe_video_audio(video_path)
+                if audio_transcript:
+                    all_text.append(audio_transcript)
+                    logger.info(f"Audio transcript: {audio_transcript[:100]}...")
+            except Exception as e:
+                logger.warning(f"Audio transcription failed: {e}")
+        
+        # Combine all text sources
+        combined_text = " ".join(all_text)
+        
+        if not combined_text.strip():
+            logger.warning("No text available for vibe classification")
+            return []
+        
+        # Classify vibes from combined text with lower confidence threshold for video
+        return self.classify_vibes(combined_text, max_vibes=max_vibes, confidence_threshold=0.1)
+    
+    def _transcribe_video_audio(self, video_path: str) -> Optional[str]:
+        """
+        Extract audio from video and transcribe using Whisper
+        
+        Args:
+            video_path: Path to video file
+            
+        Returns:
+            Transcribed text or None if failed
+        """
+        if not self.whisper_model:
+            return None
+        
+        try:
+            # Extract audio using ffmpeg to temporary file
+            with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_audio:
+                temp_audio_path = temp_audio.name
+            
+            # Use ffmpeg to extract audio
+            cmd = [
+                "ffmpeg", "-i", video_path, 
+                "-vn", "-acodec", "pcm_s16le", 
+                "-ar", "16000", "-ac", "1", 
+                temp_audio_path, "-y"
+            ]
+            
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            
+            if result.returncode != 0:
+                logger.warning(f"FFmpeg failed: {result.stderr}")
+                return None
+            
+            # Transcribe audio with Whisper
+            result = self.whisper_model.transcribe(temp_audio_path)
+            transcript = result.get("text", "").strip()
+            
+            # Clean up temporary file
+            Path(temp_audio_path).unlink(missing_ok=True)
+            
+            return transcript if transcript else None
+            
+        except Exception as e:
+            logger.error(f"Audio transcription error: {e}")
+            return None
+    
     def classify_vibes(self, text: str, max_vibes: int = 3, confidence_threshold: float = 0.3) -> List[Tuple[str, float]]:
-        """Classify vibes from text"""
+        """Enhanced vibe classification from text with multiple methods"""
         if not text or not text.strip():
+            logger.debug("Empty text provided to classify_vibes")
             return []
             
         # Clean and preprocess text
+        original_text = text
         text = self._preprocess_text(text)
+        logger.debug(f"Original text: '{original_text[:100]}...'")
+        logger.debug(f"Preprocessed text: '{text[:100]}...'")
         
-        # Get classifications
+        if not text or not text.strip():
+            logger.warning("Text became empty after preprocessing")
+            return []
+        
+        # Get classifications from multiple methods
         rule_based_vibes = self._rule_based_classification(text)
+        semantic_vibes = self._semantic_classification(text)
         
         if self.use_transformer and self.transformer_pipeline:
             transformer_vibes = self._transformer_classification(text)
-            vibes = self._combine_classifications(rule_based_vibes, transformer_vibes)
+            vibes = self._combine_multiple_classifications(rule_based_vibes, semantic_vibes, transformer_vibes)
         else:
-            vibes = rule_based_vibes
+            # Combine rule-based and semantic without transformer
+            combined_scores = {}
+            
+            # Combine rule-based and semantic scores
+            for vibe, score in rule_based_vibes:
+                combined_scores[vibe] = score * 0.6  # Weight rule-based higher when no transformer
+            
+            for vibe, score in semantic_vibes:
+                if vibe in combined_scores:
+                    combined_scores[vibe] += score * 0.4
+                else:
+                    combined_scores[vibe] = score * 0.4
+            
+            vibes = list(combined_scores.items())
             
         # Filter and sort
         vibes = [(vibe, score) for vibe, score in vibes if score >= confidence_threshold]
@@ -304,11 +442,22 @@ class VibeClassifier:
         """Transformer-based vibe classification"""
         if not self.transformer_pipeline:
             return []
+        
+        # Check if text is valid and not empty
+        if not text or not text.strip():
+            logger.warning("Empty text provided to transformer classification")
+            return []
             
         try:
             candidate_labels = list(self.supported_vibes)
+            
+            # Ensure we have valid text and labels
+            if len(candidate_labels) == 0:
+                logger.warning("No candidate labels available")
+                return []
+            
             result = self.transformer_pipeline(
-                text,
+                text.strip(),
                 candidate_labels=candidate_labels,
                 multi_label=True
             )
@@ -339,4 +488,119 @@ class VibeClassifier:
                 
             combined[vibe] = combined_score
             
-        return [(vibe, score) for vibe, score in combined.items()] 
+        return [(vibe, score) for vibe, score in combined.items()]
+    
+    def _semantic_classification(self, text: str) -> List[Tuple[str, float]]:
+        """Enhanced semantic analysis using word embeddings and context"""
+        if not self.nlp:
+            return []
+        
+        doc = self.nlp(text)
+        vibe_scores = {}
+        
+        # Enhanced keyword matching with context
+        for vibe, keywords in self.vibe_keywords.items():
+            score = 0.0
+            
+            # Direct keyword matching with weights
+            for keyword in keywords:
+                if keyword.lower() in text.lower():
+                    score += 1.0
+            
+            # Semantic similarity using spaCy word vectors
+            if doc.has_vector:
+                for token in doc:
+                    if token.has_vector and not token.is_stop and not token.is_punct:
+                        for keyword in keywords:
+                            keyword_doc = self.nlp(keyword)
+                            if keyword_doc.has_vector:
+                                similarity = token.similarity(keyword_doc[0])
+                                if similarity > 0.6:  # High similarity threshold
+                                    score += similarity * 0.5
+            
+            # Context-based scoring
+            score += self._analyze_context_for_vibe(doc, vibe)
+            
+            # Normalize score
+            if score > 0:
+                vibe_scores[vibe] = min(score / len(keywords), 1.0)
+        
+        return list(vibe_scores.items())
+    
+    def _analyze_context_for_vibe(self, doc, vibe: str) -> float:
+        """Analyze context and sentiment for specific vibe"""
+        context_score = 0.0
+        
+        # Analyze sentiment and mood
+        positive_words = ["beautiful", "gorgeous", "stunning", "amazing", "perfect", "love"]
+        negative_words = ["ugly", "bad", "terrible", "awful", "hate"]
+        
+        text_lower = doc.text.lower()
+        
+        # Positive sentiment bonus
+        for word in positive_words:
+            if word in text_lower:
+                context_score += 0.1
+        
+        # Negative sentiment penalty
+        for word in negative_words:
+            if word in text_lower:
+                context_score -= 0.2
+        
+        # Vibe-specific context analysis
+        if vibe == "Coquette":
+            romantic_words = ["romantic", "feminine", "soft", "delicate", "sweet"]
+            for word in romantic_words:
+                if word in text_lower:
+                    context_score += 0.15
+        
+        elif vibe == "Clean Girl":
+            minimal_words = ["minimal", "simple", "natural", "effortless", "clean"]
+            for word in minimal_words:
+                if word in text_lower:
+                    context_score += 0.15
+        
+        elif vibe == "Streetcore":
+            urban_words = ["street", "urban", "city", "edgy", "cool"]
+            for word in urban_words:
+                if word in text_lower:
+                    context_score += 0.15
+        
+        return context_score
+    
+    def _combine_multiple_classifications(
+        self, 
+        rule_based: List[Tuple[str, float]], 
+        semantic: List[Tuple[str, float]],
+        transformer: List[Tuple[str, float]]
+    ) -> List[Tuple[str, float]]:
+        """Combine three classification methods with weighted averaging"""
+        combined_scores = {}
+        
+        # Weights for different methods
+        weights = {
+            'rule_based': 0.4,
+            'semantic': 0.3,
+            'transformer': 0.3
+        }
+        
+        # Combine scores
+        for vibe in self.supported_vibes:
+            total_score = 0.0
+            
+            # Rule-based score
+            rule_score = next((score for v, score in rule_based if v == vibe), 0.0)
+            total_score += rule_score * weights['rule_based']
+            
+            # Semantic score
+            semantic_score = next((score for v, score in semantic if v == vibe), 0.0)
+            total_score += semantic_score * weights['semantic']
+            
+            # Transformer score
+            transformer_score = next((score for v, score in transformer if v == vibe), 0.0)
+            total_score += transformer_score * weights['transformer']
+            
+            if total_score > 0:
+                combined_scores[vibe] = total_score
+        
+        return list(combined_scores.items()) 

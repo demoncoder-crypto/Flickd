@@ -8,12 +8,11 @@
     "duration": 9.366666666666667
   },
   "vibes": [
-    "Clean Girl",
     "Coquette",
-    "Streetcore"
+    "Clean Girl"
   ],
   "products": [],
   "raw_detections": 0,
   "frames_processed": 10,
-  "processing_time": 4.01
+  "processing_time": 13.1
 }

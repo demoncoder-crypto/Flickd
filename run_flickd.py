@@ -135,58 +135,73 @@ def start_api_server():
     except KeyboardInterrupt:
         print("\n🛑 Server stopped")
 
-def create_demo_data():
-    """Create demo data for testing"""
-    print("\n📊 Creating demo data...")
+def setup_catalog():
+    """Setup product catalog - use real catalog if available, otherwise create demo"""
+    print("\n📊 Setting up product catalog...")
     
-    # Create sample product catalog
-    products_data = [
-        {
-            'product_id': 'prod_001',
-            'product_name': 'Black Evening Dress',
-            'image_url': 'https://example.com/dress1.jpg',
-            'category': 'dress',
-            'color': 'black'
-        },
-        {
-            'product_id': 'prod_002', 
-            'product_name': 'White Cotton Blouse',
-            'image_url': 'https://example.com/top1.jpg',
-            'category': 'top',
-            'color': 'white'
-        },
-        {
-            'product_id': 'prod_003',
-            'product_name': 'Blue Denim Jeans',
-            'image_url': 'https://example.com/jeans1.jpg',
-            'category': 'bottom',
-            'color': 'blue'
-        },
-        {
-            'product_id': 'prod_004',
-            'product_name': 'Brown Leather Handbag',
-            'image_url': 'https://example.com/bag1.jpg',
-            'category': 'bag',
-            'color': 'brown'
-        },
-        {
-            'product_id': 'prod_005',
-            'product_name': 'Gold Chain Necklace',
-            'image_url': 'https://example.com/necklace1.jpg',
-            'category': 'accessories',
-            'color': 'gold'
-        }
-    ]
+    # Check if real catalog exists
+    real_catalog_path = Path("data/catalog.csv")
+    demo_catalog_path = Path("data/products.csv")
     
-    # Save catalog
-    import pandas as pd
-    df = pd.DataFrame(products_data)
-    catalog_path = Path("data/products.csv")
-    catalog_path.parent.mkdir(exist_ok=True)
-    df.to_csv(catalog_path, index=False)
-    
-    print(f"✅ Created product catalog: {catalog_path}")
-    print(f"   Products: {len(products_data)}")
+    if real_catalog_path.exists():
+        print(f"✅ Using real product catalog: {real_catalog_path}")
+        # Read real catalog and check structure
+        import pandas as pd
+        df = pd.read_csv(real_catalog_path)
+        print(f"   Products: {len(df)}")
+        print(f"   Columns: {list(df.columns)}")
+        return str(real_catalog_path)
+    else:
+        print("⚠️  Real catalog not found, creating demo catalog...")
+        
+        # Create sample product catalog
+        products_data = [
+            {
+                'product_id': 'prod_001',
+                'product_name': 'Black Evening Dress',
+                'image_url': 'https://example.com/dress1.jpg',
+                'category': 'dress',
+                'color': 'black'
+            },
+            {
+                'product_id': 'prod_002', 
+                'product_name': 'White Cotton Blouse',
+                'image_url': 'https://example.com/top1.jpg',
+                'category': 'top',
+                'color': 'white'
+            },
+            {
+                'product_id': 'prod_003',
+                'product_name': 'Blue Denim Jeans',
+                'image_url': 'https://example.com/jeans1.jpg',
+                'category': 'bottom',
+                'color': 'blue'
+            },
+            {
+                'product_id': 'prod_004',
+                'product_name': 'Brown Leather Handbag',
+                'image_url': 'https://example.com/bag1.jpg',
+                'category': 'bag',
+                'color': 'brown'
+            },
+            {
+                'product_id': 'prod_005',
+                'product_name': 'Gold Chain Necklace',
+                'image_url': 'https://example.com/necklace1.jpg',
+                'category': 'accessories',
+                'color': 'gold'
+            }
+        ]
+        
+        # Save catalog
+        import pandas as pd
+        df = pd.DataFrame(products_data)
+        demo_catalog_path.parent.mkdir(exist_ok=True)
+        df.to_csv(demo_catalog_path, index=False)
+        
+        print(f"✅ Created demo catalog: {demo_catalog_path}")
+        print(f"   Products: {len(products_data)}")
+        return str(demo_catalog_path)
 
 def show_results(output_dir: str = "outputs"):
     """Show processing results summary"""
@@ -253,10 +268,10 @@ def main():
         sys.exit(1)
     
     if args.mode == 'demo':
-        create_demo_data()
+        setup_catalog()
         
     elif args.mode == 'process':
-        create_demo_data()  # Ensure we have demo data
+        setup_catalog()  # Setup catalog (real or demo)
         results = process_videos(args.videos, args.output)
         
         if results:
@@ -266,7 +281,7 @@ def main():
             print(f"\n⚠️  No videos processed. Add video files to '{args.videos}' directory")
             
     elif args.mode == 'api':
-        create_demo_data()  # Ensure we have demo data
+        setup_catalog()  # Setup catalog (real or demo)
         start_api_server()
         
     elif args.mode == 'results':

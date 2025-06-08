@@ -88,18 +88,29 @@ class VideoAnalysisPipeline:
                     regions = self.fashion_detector.extract_fashion_regions(frame, detections)
                     
                     for cropped_region, detection_info in regions:
-                        # Match to products
-                        matches = self.product_matcher.match_product(cropped_region, top_k=3)
+                        # Get detected color from YOLO detection
+                        detected_color = detection_info.get('color', 'unknown')
+                        
+                        # Match to products with color awareness
+                        matches = self.product_matcher.match_product(
+                            cropped_region, 
+                            detected_color=detected_color,
+                            top_k=3
+                        )
                         
                         # Add frame number to detection
                         detection_info['frame_number'] = frame_num
                         
-                        # Get best match
-                        if matches and matches[0]['match_type'] in ['exact', 'similar']:
+                        # Get best match (include all matches above threshold)
+                        if matches:
                             best_match = matches[0]
+                            
+                            # Use detected color from YOLO, fallback to product color
+                            final_color = detected_color if detected_color != 'unknown' else best_match.get('color', 'unknown')
+                            
                             product_info = {
                                 'type': detection_info['class'],
-                                'color': best_match.get('color', 'unknown'),
+                                'color': final_color,  # Required field with proper color
                                 'match_type': best_match['match_type'],
                                 'matched_product_id': best_match['product_id'],
                                 'matched_product_name': best_match['product_name'],
@@ -117,25 +128,40 @@ class VideoAnalysisPipeline:
                         vis_path = self.video_processor.frames_dir / video_id / f"detection_{frame_num:06d}.jpg"
                         self.fashion_detector.visualize_detections(frame, detections, str(vis_path))
                         
-            # Classify vibes from text
+            # Enhanced vibe classification with audio transcription
             vibes = []
-            if caption or transcript:
-                combined_text = f"{caption or ''} {transcript or ''}".strip()
-                vibe_results = self.vibe_classifier.classify_vibes(combined_text)
+            
+            # Try video-based classification first (includes audio transcription)
+            try:
+                vibe_results = self.vibe_classifier.classify_vibes_from_video(
+                    video_path, 
+                    caption=caption, 
+                    hashtags=None,  # Could extract from caption
+                    max_vibes=3
+                )
                 vibes = [vibe for vibe, _ in vibe_results]
-            else:
-                # Use visual analysis when no text is available
-                frame_vibes = []
-                for frame_num, frame in frames[:5]:  # Analyze first 5 frames
-                    detected_vibes = self.vibe_classifier.classify_vibes_from_image(frame)
-                    frame_vibes.extend(detected_vibes)
+                logger.info(f"Detected vibes from video analysis: {vibes}")
+            except Exception as e:
+                logger.warning(f"Video-based vibe classification failed: {e}")
                 
-                # Aggregate vibes from all frames
-                if frame_vibes:
-                    from collections import Counter
-                    vibe_counts = Counter(frame_vibes)
-                    # Get most common vibes (up to 3)
-                    vibes = [vibe for vibe, count in vibe_counts.most_common(3)]
+                # Fallback to text-only classification
+                if caption or transcript:
+                    combined_text = f"{caption or ''} {transcript or ''}".strip()
+                    vibe_results = self.vibe_classifier.classify_vibes(combined_text)
+                    vibes = [vibe for vibe, _ in vibe_results]
+                else:
+                    # Use visual analysis when no text is available
+                    frame_vibes = []
+                    for frame_num, frame in frames[:5]:  # Analyze first 5 frames
+                        detected_vibes = self.vibe_classifier.classify_vibes_from_image(frame)
+                        frame_vibes.extend(detected_vibes)
+                    
+                    # Aggregate vibes from all frames
+                    if frame_vibes:
+                        from collections import Counter
+                        vibe_counts = Counter(frame_vibes)
+                        # Get most common vibes (up to 3)
+                        vibes = [vibe for vibe, count in vibe_counts.most_common(3)]
                 
             # Aggregate results
             processing_time = time.time() - start_time
