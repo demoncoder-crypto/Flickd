@@ -1,8 +1,5 @@
 # 🎬 Flickd AI - Smart Fashion Tagging & Vibe Classification Engine
 
-[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
-[![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)]()
-
 > **Advanced AI-powered video analysis system that detects fashion items, matches products, and classifies aesthetic vibes from social media content with real-time bounding box visualization.**
 
 ## 🚀 **What is Flickd AI?**
