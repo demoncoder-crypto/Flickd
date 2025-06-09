@@ -330,15 +330,6 @@ CMD ["python", "run_flickd.py", "--mode", "api"]
 - **ML**: scikit-learn, faiss-cpu, clip-by-openai
 - **Utils**: pandas, numpy, pillow, tqdm
 
-## 📄 **Acknowledgments**
-
-Built with cutting-edge AI technologies including:
-- **YOLOv8** by Ultralytics
-- **CLIP** by OpenAI  
-- **Whisper** by OpenAI
-- **FAISS** by Facebook Research
-- **Transformers** by Hugging Face
-
 ---
 
 **Flickd AI** - Revolutionizing fashion content analysis through advanced AI and beautiful visualization. 🎬✨
