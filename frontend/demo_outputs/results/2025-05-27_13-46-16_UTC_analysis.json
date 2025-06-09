@@ -1,0 +1,661 @@
+{
+  "video_id": "2025-05-27_13-46-16_UTC",
+  "detections_per_frame": [
+    {
+      "frame_number": 0,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.8476773500442505,
+          "quality_score": 0.8499532034124794,
+          "bbox": [
+            2.0645751953125,
+            43.58642578125,
+            719.2003173828125,
+            1278.539794921875
+          ],
+          "color": "navy",
+          "yolo_class": "person",
+          "region_size": [
+            1235,
+            717
+          ]
+        },
+        {
+          "class": "accessory",
+          "confidence": 0.5044289827346802,
+          "quality_score": 0.7990394100141518,
+          "bbox": [
+            1.1622314453125,
+            0.83050537109375,
+            719.3197021484375,
+            739.9373779296875
+          ],
+          "color": "gray",
+          "yolo_class": "umbrella",
+          "region_size": [
+            739,
+            718
+          ]
+        }
+      ],
+      "detection_count": 2,
+      "validation_metrics": {
+        "total_detections": 2,
+        "confidence_stats": {
+          "mean": 0.6760531663894653,
+          "std": 0.17162418365478516,
+          "min": 0.5044289827346802,
+          "max": 0.8476773500442505,
+          "count": 2
+        },
+        "class_distribution": {
+          "person": 1,
+          "umbrella": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8244963067133155,
+          "high_quality_count": 1,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 2
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0000.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0000.jpg"
+    },
+    {
+      "frame_number": 30,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.7357422113418579,
+          "quality_score": 0.8127470587937029,
+          "bbox": [
+            0.606201171875,
+            66.318359375,
+            719.001220703125,
+            1276.2373046875
+          ],
+          "color": "denim",
+          "yolo_class": "person",
+          "region_size": [
+            1210,
+            719
+          ]
+        }
+      ],
+      "detection_count": 1,
+      "validation_metrics": {
+        "total_detections": 1,
+        "confidence_stats": {
+          "mean": 0.7357422113418579,
+          "std": 0.0,
+          "min": 0.7357422113418579,
+          "max": 0.7357422113418579,
+          "count": 1
+        },
+        "class_distribution": {
+          "person": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8127470587937029,
+          "high_quality_count": 1,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 1
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0030.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0030.jpg"
+    },
+    {
+      "frame_number": 60,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.9549248218536377,
+          "quality_score": 0.8491164057165885,
+          "bbox": [
+            1.87811279296875,
+            104.013427734375,
+            718.2147827148438,
+            1275.76171875
+          ],
+          "color": "gray",
+          "yolo_class": "person",
+          "region_size": [
+            1171,
+            717
+          ]
+        },
+        {
+          "class": "accessory",
+          "confidence": 0.8235877156257629,
+          "quality_score": 0.865242266710935,
+          "bbox": [
+            229.3065948486328,
+            924.5560913085938,
+            469.78778076171875,
+            1279.23095703125
+          ],
+          "color": "denim",
+          "yolo_class": "tie",
+          "region_size": [
+            355,
+            240
+          ]
+        }
+      ],
+      "detection_count": 2,
+      "validation_metrics": {
+        "total_detections": 2,
+        "confidence_stats": {
+          "mean": 0.8892562687397003,
+          "std": 0.06566855311393738,
+          "min": 0.8235877156257629,
+          "max": 0.9549248218536377,
+          "count": 2
+        },
+        "class_distribution": {
+          "person": 1,
+          "tie": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8571793362137617,
+          "high_quality_count": 2,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 2
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0060.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0060.jpg"
+    },
+    {
+      "frame_number": 90,
+      "detections": [
+        {
+          "class": "dress",
+          "confidence": 0.9289110898971558,
+          "quality_score": 0.8802625099706176,
+          "bbox": [
+            2.477630615234375,
+            130.424072265625,
+            344.25152587890625,
+            1278.961181640625
+          ],
+          "color": "black",
+          "yolo_class": "person",
+          "region_size": [
+            1148,
+            342
+          ]
+        },
+        {
+          "class": "dress",
+          "confidence": 0.9274948835372925,
+          "quality_score": 0.9169935491401997,
+          "bbox": [
+            311.31512451171875,
+            176.33346557617188,
+            643.7478637695312,
+            1185.22314453125
+          ],
+          "color": "black",
+          "yolo_class": "person",
+          "region_size": [
+            1009,
+            332
+          ]
+        },
+        {
+          "class": "bag",
+          "confidence": 0.5118559002876282,
+          "quality_score": 0.799698136661255,
+          "bbox": [
+            532.678955078125,
+            761.493408203125,
+            650.6812744140625,
+            1094.41943359375
+          ],
+          "color": "white",
+          "yolo_class": "handbag",
+          "region_size": [
+            333,
+            118
+          ]
+        }
+      ],
+      "detection_count": 3,
+      "validation_metrics": {
+        "total_detections": 3,
+        "confidence_stats": {
+          "mean": 0.7894206245740255,
+          "std": 0.19626875033356897,
+          "min": 0.5118559002876282,
+          "max": 0.9289110898971558,
+          "count": 3
+        },
+        "class_distribution": {
+          "person": 2,
+          "handbag": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8656513985906908,
+          "high_quality_count": 2,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 2
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0090.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0090.jpg"
+    },
+    {
+      "frame_number": 120,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.7192947268486023,
+          "quality_score": 0.7733073886451469,
+          "bbox": [
+            0.57305908203125,
+            0.3843994140625,
+            720.0,
+            1276.60791015625
+          ],
+          "color": "black",
+          "yolo_class": "person",
+          "region_size": [
+            1276,
+            720
+          ]
+        }
+      ],
+      "detection_count": 1,
+      "validation_metrics": {
+        "total_detections": 1,
+        "confidence_stats": {
+          "mean": 0.7192947268486023,
+          "std": 0.0,
+          "min": 0.7192947268486023,
+          "max": 0.7192947268486023,
+          "count": 1
+        },
+        "class_distribution": {
+          "person": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.7733073886451469,
+          "high_quality_count": 0,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 1
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0120.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0120.jpg"
+    },
+    {
+      "frame_number": 150,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.9573825597763062,
+          "quality_score": 0.8454060158025434,
+          "bbox": [
+            1.85546875,
+            1.268310546875,
+            718.12939453125,
+            1278.02587890625
+          ],
+          "color": "black",
+          "yolo_class": "person",
+          "region_size": [
+            1277,
+            717
+          ]
+        }
+      ],
+      "detection_count": 1,
+      "validation_metrics": {
+        "total_detections": 1,
+        "confidence_stats": {
+          "mean": 0.9573825597763062,
+          "std": 0.0,
+          "min": 0.9573825597763062,
+          "max": 0.9573825597763062,
+          "count": 1
+        },
+        "class_distribution": {
+          "person": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8454060158025434,
+          "high_quality_count": 1,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 1
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0150.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0150.jpg"
+    },
+    {
+      "frame_number": 180,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0180.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0180.jpg"
+    },
+    {
+      "frame_number": 210,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.8076058030128479,
+          "quality_score": 0.7763807477359038,
+          "bbox": [
+            0.0,
+            2.226318359375,
+            718.5257568359375,
+            1275.85595703125
+          ],
+          "color": "black",
+          "yolo_class": "person",
+          "region_size": [
+            1273,
+            718
+          ]
+        }
+      ],
+      "detection_count": 1,
+      "validation_metrics": {
+        "total_detections": 1,
+        "confidence_stats": {
+          "mean": 0.8076058030128479,
+          "std": 0.0,
+          "min": 0.8076058030128479,
+          "max": 0.8076058030128479,
+          "count": 1
+        },
+        "class_distribution": {
+          "person": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.7763807477359038,
+          "high_quality_count": 0,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 1
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0210.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0210.jpg"
+    },
+    {
+      "frame_number": 240,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.7465847134590149,
+          "quality_score": 0.7432479221814172,
+          "bbox": [
+            0.0206298828125,
+            298.39874267578125,
+            702.72314453125,
+            704.034912109375
+          ],
+          "color": "gray",
+          "yolo_class": "person",
+          "region_size": [
+            406,
+            702
+          ]
+        }
+      ],
+      "detection_count": 1,
+      "validation_metrics": {
+        "total_detections": 1,
+        "confidence_stats": {
+          "mean": 0.7465847134590149,
+          "std": 0.0,
+          "min": 0.7465847134590149,
+          "max": 0.7465847134590149,
+          "count": 1
+        },
+        "class_distribution": {
+          "person": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.7432479221814172,
+          "high_quality_count": 0,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 1
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0240.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0240.jpg"
+    },
+    {
+      "frame_number": 270,
+      "detections": [
+        {
+          "class": "dress",
+          "confidence": 0.9303812980651855,
+          "quality_score": 0.8874696211255724,
+          "bbox": [
+            1.89019775390625,
+            1.0780029296875,
+            566.864501953125,
+            1277.796875
+          ],
+          "color": "silver",
+          "yolo_class": "person",
+          "region_size": [
+            1276,
+            565
+          ]
+        },
+        {
+          "class": "dress",
+          "confidence": 0.8553243279457092,
+          "quality_score": 0.8823361444834215,
+          "bbox": [
+            401.4212951660156,
+            188.9552001953125,
+            692.8978271484375,
+            1273.577392578125
+          ],
+          "color": "gray",
+          "yolo_class": "person",
+          "region_size": [
+            1085,
+            291
+          ]
+        }
+      ],
+      "detection_count": 2,
+      "validation_metrics": {
+        "total_detections": 2,
+        "confidence_stats": {
+          "mean": 0.8928528130054474,
+          "std": 0.03752848505973816,
+          "min": 0.8553243279457092,
+          "max": 0.9303812980651855,
+          "count": 2
+        },
+        "class_distribution": {
+          "person": 2
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8849028828044969,
+          "high_quality_count": 2,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 2
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0270.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0270.jpg"
+    },
+    {
+      "frame_number": 300,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0300.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0300.jpg"
+    },
+    {
+      "frame_number": 330,
+      "detections": [
+        {
+          "class": "top",
+          "confidence": 0.9431559443473816,
+          "quality_score": 0.8655310647810264,
+          "bbox": [
+            1.4786376953125,
+            29.1575927734375,
+            667.7091064453125,
+            1278.1251220703125
+          ],
+          "color": "gray",
+          "yolo_class": "person",
+          "region_size": [
+            1249,
+            666
+          ]
+        }
+      ],
+      "detection_count": 1,
+      "validation_metrics": {
+        "total_detections": 1,
+        "confidence_stats": {
+          "mean": 0.9431559443473816,
+          "std": 0.0,
+          "min": 0.9431559443473816,
+          "max": 0.9431559443473816,
+          "count": 1
+        },
+        "class_distribution": {
+          "person": 1
+        },
+        "quality_indicators": {
+          "avg_quality": 0.8655310647810264,
+          "high_quality_count": 1,
+          "low_quality_count": 0,
+          "unknown_color_ratio": 0.0,
+          "color_diversity": 1
+        },
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0330.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0330.jpg"
+    },
+    {
+      "frame_number": 360,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0360.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0360.jpg"
+    },
+    {
+      "frame_number": 390,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0390.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0390.jpg"
+    },
+    {
+      "frame_number": 420,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-27_13-46-16_UTC_frame_0420.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0420.jpg"
+    }
+  ],
+  "total_detections": 15,
+  "visualization_paths": [
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0000.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0030.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0060.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0090.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0120.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0150.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0210.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0240.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0270.jpg",
+    "frontend\\demo_outputs\\visualizations\\2025-05-27_13-46-16_UTC_frame_0330.jpg"
+  ]
+}

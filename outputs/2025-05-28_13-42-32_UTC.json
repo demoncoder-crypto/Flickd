@@ -161,7 +161,7 @@
       ]
     },
     {
-      "type": "top",
+      "type": "bottom",
       "color": "striped",
       "match_type": "similar",
       "matched_product_id": "prod_16887",
@@ -432,5 +432,5 @@
   ],
   "raw_detections": 68,
   "frames_processed": 26,
-  "processing_time": 40.64
+  "processing_time": 41.39
 }

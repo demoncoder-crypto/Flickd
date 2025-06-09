@@ -1,0 +1,197 @@
+{
+  "video_id": "2025-05-22_08-25-12_UTC",
+  "detections_per_frame": [
+    {
+      "frame_number": 0,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0000.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0000.jpg"
+    },
+    {
+      "frame_number": 30,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0030.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0030.jpg"
+    },
+    {
+      "frame_number": 60,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0060.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0060.jpg"
+    },
+    {
+      "frame_number": 90,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0090.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0090.jpg"
+    },
+    {
+      "frame_number": 120,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0120.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0120.jpg"
+    },
+    {
+      "frame_number": 150,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0150.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0150.jpg"
+    },
+    {
+      "frame_number": 180,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0180.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0180.jpg"
+    },
+    {
+      "frame_number": 210,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0210.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0210.jpg"
+    },
+    {
+      "frame_number": 240,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0240.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0240.jpg"
+    },
+    {
+      "frame_number": 270,
+      "detections": [],
+      "detection_count": 0,
+      "validation_metrics": {
+        "total_detections": 0,
+        "confidence_stats": {
+          "mean": 0,
+          "std": 0,
+          "min": 0,
+          "max": 0
+        },
+        "class_distribution": {},
+        "quality_indicators": {},
+        "suspicious_detections": []
+      },
+      "original_frame_path": "frontend\\demo_outputs\\frames\\2025-05-22_08-25-12_UTC_frame_0270.jpg",
+      "visualization_path": "frontend\\demo_outputs\\visualizations\\2025-05-22_08-25-12_UTC_frame_0270.jpg"
+    }
+  ],
+  "total_detections": 0,
+  "visualization_paths": []
+}

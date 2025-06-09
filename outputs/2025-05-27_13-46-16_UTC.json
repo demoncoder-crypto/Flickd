@@ -8,8 +8,8 @@
     "duration": 15.0
   },
   "vibes": [
-    "Cottagecore",
     "Coquette",
+    "Cottagecore",
     "Boho"
   ],
   "products": [
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "type": "top",
+      "type": "bottom",
       "color": "unknown",
       "match_type": "similar",
       "matched_product_id": "prod_42076",
@@ -274,5 +274,5 @@
   ],
   "raw_detections": 30,
   "frames_processed": 15,
-  "processing_time": 19.77
+  "processing_time": 14.14
 }

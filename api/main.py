@@ -199,7 +199,7 @@ async def process_video(
                 processing_time=results.get('processing_time', 0.0)
             )
             
-            logger.info(f"Successfully processed video {results['video_id']} with {len(results.get('vibes', []))} vibes and {len(results.get('products', []))} products")
+            logger.info(f"Successfully processed video: {results['video_id']}")
             return response
             
         except Exception as model_error:
@@ -207,17 +207,75 @@ async def process_video(
             raise HTTPException(status_code=500, detail=f"Error formatting response: {str(model_error)}")
         
     except Exception as e:
-        logger.error(f"Error processing video: {e}", exc_info=True)
         # Cleanup on error
-        try:
-            if os.path.exists(temp_dir):
-                shutil.rmtree(temp_dir)
-        except Exception as cleanup_error:
-            logger.error(f"Error during cleanup: {cleanup_error}")
+        cleanup_temp_files(temp_dir)
+        logger.error(f"Video processing failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
+
+# Visualization generation endpoint
+@app.post("/generate-visualization")
+async def generate_visualization(request: Dict):
+    """
+    Generate bounding box visualization for demo purposes
+    
+    Args:
+        request: JSON with video_name or other parameters
         
-        # Return a proper error response instead of crashing
-        error_detail = f"Video processing failed: {str(e)}"
-        raise HTTPException(status_code=500, detail=error_detail)
+    Returns:
+        Paths to original frame and visualization
+    """
+    try:
+        video_name = request.get('video_name', 'demo_video')
+        logger.info(f"Generating visualization for: {video_name}")
+        
+        # Check if we have existing visualizations
+        demo_outputs_dir = Path("frontend/demo_outputs")
+        visualizations_dir = demo_outputs_dir / "visualizations"
+        frames_dir = demo_outputs_dir / "frames"
+        
+        if not visualizations_dir.exists():
+            raise HTTPException(status_code=404, detail="No visualizations available. Run demo_with_bboxes.py first.")
+        
+        # Find the latest visualization files
+        viz_files = list(visualizations_dir.glob("*.jpg"))
+        frame_files = list(frames_dir.glob("*.jpg"))
+        
+        if not viz_files:
+            raise HTTPException(status_code=404, detail="No visualization files found")
+        
+        # Get the first file with detections (non-zero size and good name)
+        selected_viz = None
+        selected_frame = None
+        
+        for viz_file in sorted(viz_files):
+            # Look for corresponding frame file
+            frame_name = viz_file.name.replace("_frame_", "_frame_")
+            frame_file = frames_dir / frame_name
+            
+            if frame_file.exists():
+                selected_viz = viz_file
+                selected_frame = frame_file
+                break
+        
+        if not selected_viz or not selected_frame:
+            # Fallback to first available files
+            selected_viz = viz_files[0]
+            if frame_files:
+                selected_frame = frame_files[0]
+            else:
+                selected_frame = selected_viz  # Use viz as both if no frame
+        
+        # Return relative paths that the frontend can access
+        return {
+            "status": "success",
+            "original_frame_path": f"demo_outputs/frames/{selected_frame.name}",
+            "visualization_path": f"demo_outputs/visualizations/{selected_viz.name}",
+            "message": "Visualization generated successfully"
+        }
+        
+    except Exception as e:
+        logger.error(f"Visualization generation failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Visualization failed: {str(e)}")
 
 # Batch processing endpoint
 @app.post("/process-batch")

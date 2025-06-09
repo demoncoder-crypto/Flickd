@@ -179,7 +179,7 @@
       ]
     },
     {
-      "type": "dress",
+      "type": "bottom",
       "color": "unknown",
       "match_type": "similar",
       "matched_product_id": "prod_16978",
@@ -514,5 +514,5 @@
   ],
   "raw_detections": 66,
   "frames_processed": 20,
-  "processing_time": 24.85
+  "processing_time": 15.58
 }
